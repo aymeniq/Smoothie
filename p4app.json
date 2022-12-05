@@ -1,0 +1,38 @@
+{
+  "p4_src": "int_v1.0/int.p4",
+  "cli": true,
+  "pcap_dump": true,
+  "enable_log": true,
+  "topology": {
+    "assignment_strategy": "mixed",
+    "links": 
+    	[["s1", "s2", {"bw": 1, "addr1": "00:02:0a:00:01:01", "addr2": "00:02:0a:00:02:02"}],
+    	["s1", "s3", {"bw": 10, "addr1": "00:03:0a:00:01:01", "addr2": "00:02:0a:00:03:03"}],
+    	["s2", "s3", {"bw": 10, "addr1": "00:03:0a:00:02:02", "addr2": "00:03:0a:00:03:03"}],
+    	["h1", "s1", {"bw": 1, "addr1": "00:00:0a:00:01:01", "addr2": "00:01:0a:00:01:01"}],
+    	["h2", "s2", {"bw": 1, "addr1": "00:00:0a:00:02:02", "addr2": "00:01:0a:00:02:02"}],
+    	["h3", "s3", {"bw": 1, "addr1": "00:00:0a:00:03:03", "addr2": "00:01:0a:00:03:03"}]],
+    "hosts": {
+      "h2": {
+      },
+      "h1": {
+      },
+      "h3": {
+      }
+    },
+    "switches": {
+      "s2": {
+        "cli_input": "commands/commands2.txt",
+        "thrift_port": 9091
+      },
+      "s1": {
+        "cli_input": "commands/commands1.txt",
+        "thrift_port": 9090
+      },
+      "s3": {
+        "cli_input": "commands/commands3.txt",
+        "thrift_port": 9092
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+set_queue_depth 64
+#set_queue_rate 10
+
+table_add tb_activate_flow_dest NoAction 1 =>
+
+table_add tb_activate_source activate_source 1 =>
+table_add tb_int_source configure_source 10.0.0.3&&&0xFFFFFFFF 10.0.0.2&&&0xFFFFFFFF 0x11FF&&&0xFFFF 0x22FF&&&0xFFFF => 4 2 2 0xC0 0
+
+table_add tb_int_sink configure_sink 1 => 4
+mirroring_add 1 4
+table_add tb_int_reporting send_report => 00:00:0a:00:03:03  10.0.3.3  f6:61:c0:6a:14:21  10.0.0.254  6000
+
+table_add tb_int_transit configure_transit => 3 1500
+
+table_add ipv4_lpm ipv4_forward 10.0.2.2/32 => 00:00:0a:00:02:02 3
+table_add ipv4_lpm ipv4_forward 10.0.3.3/32 => 00:00:0a:00:03:03 1
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 => 00:00:0a:00:01:01 2
+
+table_add ipv6_lpm ipv6_forward 2002::a00:202/128 => 00:00:0a:00:02:02 3
+table_add ipv6_lpm ipv6_forward 2002::a00:303/128 => 00:00:0a:00:03:03 1
+table_add ipv6_lpm ipv6_forward 2002::a00:101/128 => 00:00:0a:00:01:01 2
+
+table_add ipv6_lpm ipv6_forward fe80::203:aff:fe00:202/128 => 00:03:0a:00:02:02 3
+table_add ipv6_lpm ipv6_forward fe80::203:aff:fe00:101/128 => 00:03:0a:00:01:01 3
+
+table_add l2_exact_table drop 33:33:00:00:00:16 =>
+table_add l2_exact_table drop 33:33:00:00:00:02 =>
+table_add l2_exact_table drop 33:33:00:00:00:fb =>
+
+mc_mgrp_create 1
+mc_node_create 0 1 2 3
+mc_node_associate 1 0
+
+#table_add l2_exact_table set_egress_port 33:33:ff:00:03:03 => 1
+
+table_add l2_ternary_table set_multicast_group 33:33:00:00:00:00&&&0xFFFF00000000 => 1 0
+
+table_add srv6_my_sid srv6_end fe80::201:aff:fe00:303/128 =>
+table_add srv6_my_sid srv6_end fe80::202:aff:fe00:303/128 =>
+table_add srv6_my_sid srv6_end fe80::203:aff:fe00:303/128 =>
+
+#table_add ndp_reply_table ndp_ns_to_na fe80::201:aff:fe00:303 => 00:01:0a:00:03:03
+#table_add ndp_reply_table ndp_ns_to_na fe80::202:aff:fe00:303 => 00:02:0a:00:03:03
+#table_add ndp_reply_table ndp_ns_to_na fe80::203:aff:fe00:303 => 00:03:0a:00:03:03
+#table_add ndp_reply_table ndp_ns_to_na 2002::a00:303 => 00:00:0a:00:03:03
+#table_add ndp_reply_table ndp_ns_to_na fe80::200:aff:fe00:303 => 00:00:0a:00:03:03
+
+#table_add tb_forward send_to_port 00:00:0a:00:02:02&&&0xFFFFFFFF => 3 9
+#table_add tb_forward send_to_port 26:82:e5:03:8f:6e&&&0xFFFFFFFF => 5 10

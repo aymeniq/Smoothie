@@ -1,0 +1,26 @@
+#Egress queue settings
+set_queue_depth 64
+
+#Drop unwanted NDP messages
+table_add l2_exact_table drop 33:33:00:00:00:16 =>
+table_add l2_exact_table drop 33:33:00:00:00:02 =>
+table_add l2_exact_table drop 33:33:00:00:00:fb =>
+
+#NDP multicast group
+mc_mgrp_create 1
+mc_node_create 0 1 2 3
+mc_node_associate 1 0
+
+table_add l2_ternary_table set_multicast_group 33:33:00:00:00:00&&&0xFFFF00000000 => 1 0
+
+#Flowlet dest
+
+#INT Source
+
+#INT Dest
+
+#INT transit
+
+#IP forward
+
+#SRV6 my_sid
