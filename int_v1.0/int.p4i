@@ -1416,6 +1416,7 @@ parser ParserImpl(packet_in packet, out headers hdr, inout metadata meta, inout 
         packet.extract(hdr.int_header);
         // DAMU: warning (from TOFINO): Parser "verify" is currently unsupported
         /*verify(hdr.int_header.ver == INT_VERSION, error.INTVersionNotSupported);*/
+        packet.extract(hdr.int_data, (bit<32>) (hdr.int_shim.len - 3)*32);
         transition accept;
     }
 }
@@ -1462,6 +1463,9 @@ control DeparserImpl(packet_out packet, in headers hdr) {
         packet.emit(hdr.int_egress_tstamp); // bit 6
         packet.emit(hdr.int_level2_port_ids); // bit 7
         packet.emit(hdr.int_egress_port_tx_util); // bit 8
+
+        //previous nodes int data
+        packet.emit(hdr.int_data);
 
     }
 }
@@ -2398,6 +2402,8 @@ control Int_sink(inout headers hdr, inout metadata meta, inout standard_metadata
             hdr.udp.len = hdr.udp.len - len_bytes;
         }
 
+        hdr.int_data.setInvalid();
+
         // remove INT data added in INT sink
         hdr.int_switch_id.setInvalid();
         hdr.int_port_ids.setInvalid();
@@ -2736,7 +2742,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         hdr.ethernet.dstAddr = dstAddr;
 
         ig_intr_md.egress_spec = port;
-        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+        //hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
     }
 
     table ipv4_lpm {
@@ -2890,7 +2896,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         hdr.ethernet.dstAddr = dstAddr;
 
         ig_intr_md.egress_spec = port;
-        hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1;
+        //hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1;
     }
 
 
@@ -3036,8 +3042,8 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
         // sure we are not replicating the packet on the same port where it was
         // received. This is useful to avoid broadcasting NDP requests on the
         // ingress port.
-        if(eg_intr_md.egress_port == 1 &&
-           hdr.ipv6.isValid()){hdr.ipv6.hop_limit = 255;}//no router in the network therefore packet will be dropped if hop_limit different
+        /*if(eg_intr_md.egress_port == 1 &&
+           hdr.ipv6.isValid()){hdr.ipv6.hop_limit = 255;}//no router in the network therefore packet will be dropped if hop_limit different*/
         if (meta.is_multicast == true &&
             eg_intr_md.ingress_port == eg_intr_md.egress_port) {
             mark_to_drop(eg_intr_md);

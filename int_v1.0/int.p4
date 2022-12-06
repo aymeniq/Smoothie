@@ -40,7 +40,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         hdr.ethernet.dstAddr = dstAddr;
 
         ig_intr_md.egress_spec = port;
-        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+        //hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
     }
 
     table ipv4_lpm {
@@ -194,7 +194,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         hdr.ethernet.dstAddr = dstAddr;
 
         ig_intr_md.egress_spec = port;
-        hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1;
+        //hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1;
     }
 
 
@@ -340,8 +340,8 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
         // sure we are not replicating the packet on the same port where it was
         // received. This is useful to avoid broadcasting NDP requests on the
         // ingress port.
-        if(eg_intr_md.egress_port == 1 &&
-           hdr.ipv6.isValid()){hdr.ipv6.hop_limit = 255;}//no router in the network therefore packet will be dropped if hop_limit different
+        /*if(eg_intr_md.egress_port == 1 &&
+           hdr.ipv6.isValid()){hdr.ipv6.hop_limit = 255;}//no router in the network therefore packet will be dropped if hop_limit different*/
         if (meta.is_multicast == true &&
             eg_intr_md.ingress_port == eg_intr_md.egress_port) {
             mark_to_drop(eg_intr_md);
