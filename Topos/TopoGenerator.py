@@ -249,7 +249,7 @@ def genSpineLeaf(maxSNum, file=None):  #SNum must be 3,6,9,12,15...
         for j in range(L1, swSum):
             switches.append("SP"+str(j+1))
 
-        switches.sort()
+        print(switches)
 
         f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 2)
         f.write_to_file()
@@ -271,7 +271,7 @@ def calOddNum(topoMatrix, sNum):
     return count
 
 if __name__ == '__main__':
-    topoList1 = genSpineLeaf(6, file="test.json")
+    topoList1 = genSpineLeaf(15, file="test.json")
     print(len(topoList1))
     #print(topoList1)
     A = np.array(topoList1)

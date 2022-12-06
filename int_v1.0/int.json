@@ -6,10 +6,11 @@
       "fields" : [
         ["tmp", 1, false],
         ["tmp_0", 1, false],
-        ["tmp_1", 128, false],
+        ["tmp_1", 32, false],
         ["tmp_2", 128, false],
-        ["tmp_3", 32, false],
+        ["tmp_3", 128, false],
         ["tmp_4", 32, false],
+        ["tmp_5", 32, false],
         ["host_ipv6_tmp_0", 128, false],
         ["do_l3_l2_0", 1, false],
         ["Int_source_res", 8, false],
@@ -17,7 +18,6 @@
         ["Flowlet_ip_dst", 128, false],
         ["Int_source_hasReturned", 1, false],
         ["Flowlet_hasReturned", 1, false],
-        ["tmp_5", 32, false],
         ["tmp_6", 32, false],
         ["tmp_7", 32, false],
         ["tmp_8", 32, false],
@@ -27,6 +27,7 @@
         ["tmp_12", 32, false],
         ["tmp_13", 32, false],
         ["tmp_14", 32, false],
+        ["tmp_15", 32, false],
         ["Int_sink_Int_report_seq_num_value", 32, false],
         ["Int_transit_hasReturned", 1, false],
         ["Int_sink_hasReturned", 1, false],
@@ -1614,6 +1615,88 @@
                 }
               ],
               "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_1"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "<<",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "+",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["int_shim", "len"]
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0xfd"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x5"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "int_data"
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "field",
+                    "value" : ["scalars", "tmp_1"]
+                  }
+                }
+              ],
+              "op" : "extract_VL"
             }
           ],
           "transitions" : [
@@ -1636,11 +1719,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 164,
+        "line" : 165,
         "column" : 8,
         "source_fragment" : "DeparserImpl"
       },
-      "order" : ["cpu_in", "report_ethernet", "report_ipv4", "report_udp", "report_fixed_header", "ethernet", "ipv4", "ipv6", "srv6h", "srv6_list[0]", "srv6_list[1]", "srv6_list[2]", "srv6_list[3]", "udp", "tcp", "icmp", "icmpv6", "ndp", "flowlet", "int_shim", "int_header", "int_switch_id", "int_port_ids", "int_hop_latency", "int_q_occupancy", "int_ingress_tstamp", "int_egress_tstamp", "int_level2_port_ids", "int_egress_port_tx_util"],
+      "order" : ["cpu_in", "report_ethernet", "report_ipv4", "report_udp", "report_fixed_header", "ethernet", "ipv4", "ipv6", "srv6h", "srv6_list[0]", "srv6_list[1]", "srv6_list[2]", "srv6_list[3]", "udp", "tcp", "icmp", "icmpv6", "ndp", "flowlet", "int_shim", "int_header", "int_switch_id", "int_port_ids", "int_hop_latency", "int_q_occupancy", "int_ingress_tstamp", "int_egress_tstamp", "int_level2_port_ids", "int_egress_port_tx_util", "int_data"],
       "primitives" : []
     }
   ],
@@ -1753,11 +1836,11 @@
       "input" : [
         {
           "type" : "field",
-          "value" : ["scalars", "tmp_1"]
+          "value" : ["scalars", "tmp_2"]
         },
         {
           "type" : "field",
-          "value" : ["scalars", "tmp_2"]
+          "value" : ["scalars", "tmp_3"]
         },
         {
           "type" : "field",
@@ -1805,7 +1888,7 @@
       "id" : 2,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 217,
+        "line" : 221,
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -1866,7 +1949,7 @@
       "id" : 3,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 237,
+        "line" : 241,
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -1927,7 +2010,7 @@
       "id" : 4,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 257,
+        "line" : 261,
         "column" : 8,
         "source_fragment" : "update_checksum(hdr.ndp.isValid(), ..."
       },
@@ -1989,7 +2072,7 @@
       "id" : 5,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 276,
+        "line" : 280,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -2039,7 +2122,7 @@
       "id" : 6,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 291,
+        "line" : 295,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -2129,7 +2212,7 @@
       "id" : 7,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 317,
+        "line" : 321,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -2203,7 +2286,7 @@
       "id" : 8,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 336,
+        "line" : 340,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -4812,7 +4895,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_1"]
+              "value" : ["scalars", "tmp_2"]
             },
             {
               "type" : "expression",
@@ -4865,7 +4948,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_2"]
+              "value" : ["scalars", "tmp_3"]
             },
             {
               "type" : "expression",
@@ -4945,7 +5028,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_3"]
+              "value" : ["scalars", "tmp_4"]
             },
             {
               "type" : "expression",
@@ -4985,7 +5068,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_3"]
+              "value" : ["scalars", "tmp_4"]
             }
           ],
           "source_info" : {
@@ -5000,7 +5083,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_4"]
+              "value" : ["scalars", "tmp_5"]
             },
             {
               "type" : "expression",
@@ -5036,7 +5119,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_4"]
+              "value" : ["scalars", "tmp_5"]
             },
             {
               "type" : "field",
@@ -5147,48 +5230,6 @@
             "line" : 42,
             "column" : 8,
             "source_fragment" : "ig_intr_md.egress_spec = port"
-          }
-        },
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["ipv4", "ttl"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "+",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["ipv4", "ttl"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0xff"
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xff"
-                  }
-                }
-              }
-            }
-          ],
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 43,
-            "column" : 8,
-            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
         }
       ]
@@ -5801,48 +5842,6 @@
             "column" : 8,
             "source_fragment" : "ig_intr_md.egress_spec = port"
           }
-        },
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["ipv6", "hop_limit"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "+",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["ipv6", "hop_limit"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0xff"
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xff"
-                  }
-                }
-              }
-            }
-          ],
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 197,
-            "column" : 8,
-            "source_fragment" : "hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1"
-          }
         }
       ]
     },
@@ -5915,48 +5914,6 @@
             "line" : 196,
             "column" : 8,
             "source_fragment" : "ig_intr_md.egress_spec = port"
-          }
-        },
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["ipv6", "hop_limit"]
-            },
-            {
-              "type" : "expression",
-              "value" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "&",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "+",
-                      "left" : {
-                        "type" : "field",
-                        "value" : ["ipv6", "hop_limit"]
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0xff"
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0xff"
-                  }
-                }
-              }
-            }
-          ],
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 197,
-            "column" : 8,
-            "source_fragment" : "hdr.ipv6.hop_limit = hdr.ipv6.hop_limit - 1"
           }
         }
       ]
@@ -7054,7 +7011,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_5"]
+              "value" : ["scalars", "tmp_6"]
             },
             {
               "type" : "expression",
@@ -7197,7 +7154,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_5"]
+                  "value" : ["scalars", "tmp_6"]
                 },
                 {
                   "type" : "field",
@@ -7597,7 +7554,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_6"]
+              "value" : ["scalars", "tmp_7"]
             },
             {
               "type" : "expression",
@@ -7740,7 +7697,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_6"]
+                  "value" : ["scalars", "tmp_7"]
                 },
                 {
                   "type" : "field",
@@ -8433,7 +8390,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_7"]
+              "value" : ["scalars", "tmp_8"]
             },
             {
               "type" : "expression",
@@ -8576,7 +8533,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_7"]
+                  "value" : ["scalars", "tmp_8"]
                 },
                 {
                   "type" : "field",
@@ -9021,7 +8978,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_8"]
+              "value" : ["scalars", "tmp_9"]
             },
             {
               "type" : "expression",
@@ -9164,7 +9121,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_8"]
+                  "value" : ["scalars", "tmp_9"]
                 },
                 {
                   "type" : "field",
@@ -9859,7 +9816,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_9"]
+              "value" : ["scalars", "tmp_10"]
             },
             {
               "type" : "expression",
@@ -10002,7 +9959,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_9"]
+                  "value" : ["scalars", "tmp_10"]
                 },
                 {
                   "type" : "field",
@@ -10415,7 +10372,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_10"]
+              "value" : ["scalars", "tmp_11"]
             },
             {
               "type" : "expression",
@@ -10558,7 +10515,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_10"]
+                  "value" : ["scalars", "tmp_11"]
                 },
                 {
                   "type" : "field",
@@ -11353,7 +11310,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_11"]
+              "value" : ["scalars", "tmp_12"]
             },
             {
               "type" : "expression",
@@ -11496,7 +11453,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_11"]
+                  "value" : ["scalars", "tmp_12"]
                 },
                 {
                   "type" : "field",
@@ -11975,7 +11932,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_12"]
+              "value" : ["scalars", "tmp_13"]
             },
             {
               "type" : "expression",
@@ -12118,7 +12075,7 @@
               "value" : [
                 {
                   "type" : "field",
-                  "value" : ["scalars", "tmp_12"]
+                  "value" : ["scalars", "tmp_13"]
                 },
                 {
                   "type" : "field",
@@ -22805,7 +22762,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_13"]
+              "value" : ["scalars", "tmp_14"]
             },
             {
               "type" : "expression",
@@ -22855,7 +22812,7 @@
             },
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_13"]
+              "value" : ["scalars", "tmp_14"]
             }
           ],
           "source_info" : {
@@ -22936,7 +22893,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_14"]
+              "value" : ["scalars", "tmp_15"]
             },
             {
               "type" : "expression",
@@ -25163,7 +25120,7 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["scalars", "tmp_14"]
+              "value" : ["scalars", "tmp_15"]
             }
           ],
           "source_info" : {
@@ -25520,12 +25477,27 @@
           "parameters" : [
             {
               "type" : "header",
+              "value" : "int_data"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
+            "line" : 69,
+            "column" : 8,
+            "source_fragment" : "hdr.int_data.setInvalid()"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
               "value" : "int_switch_id"
             }
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 70,
+            "line" : 72,
             "column" : 8,
             "source_fragment" : "hdr.int_switch_id.setInvalid()"
           }
@@ -25540,7 +25512,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 71,
+            "line" : 73,
             "column" : 8,
             "source_fragment" : "hdr.int_port_ids.setInvalid()"
           }
@@ -25555,7 +25527,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 72,
+            "line" : 74,
             "column" : 8,
             "source_fragment" : "hdr.int_ingress_tstamp.setInvalid()"
           }
@@ -25570,7 +25542,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 73,
+            "line" : 75,
             "column" : 8,
             "source_fragment" : "hdr.int_egress_tstamp.setInvalid()"
           }
@@ -25585,7 +25557,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 74,
+            "line" : 76,
             "column" : 8,
             "source_fragment" : "hdr.int_hop_latency.setInvalid()"
           }
@@ -25600,7 +25572,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 75,
+            "line" : 77,
             "column" : 8,
             "source_fragment" : "hdr.int_level2_port_ids.setInvalid()"
           }
@@ -25615,7 +25587,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 76,
+            "line" : 78,
             "column" : 8,
             "source_fragment" : "hdr.int_q_occupancy.setInvalid()"
           }
@@ -25630,7 +25602,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 77,
+            "line" : 79,
             "column" : 8,
             "source_fragment" : "hdr.int_egress_port_tx_util.setInvalid()"
           }
@@ -25645,7 +25617,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 80,
+            "line" : 82,
             "column" : 8,
             "source_fragment" : "hdr.int_shim.setInvalid()"
           }
@@ -25660,7 +25632,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 81,
+            "line" : 83,
             "column" : 8,
             "source_fragment" : "hdr.int_header.setInvalid()"
           }
@@ -25750,34 +25722,8 @@
       ]
     },
     {
-      "name" : "int344",
-      "id" : 96,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["ipv6", "hop_limit"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0xff"
-            }
-          ],
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 344,
-            "column" : 31,
-            "source_fragment" : "hdr.ipv6.hop_limit = 255"
-          }
-        }
-      ]
-    },
-    {
       "name" : "int347",
-      "id" : 97,
+      "id" : 96,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25799,7 +25745,7 @@
     },
     {
       "name" : "int_transit401",
-      "id" : 98,
+      "id" : 97,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25835,7 +25781,7 @@
     },
     {
       "name" : "act_0",
-      "id" : 99,
+      "id" : 98,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25865,7 +25811,7 @@
     },
     {
       "name" : "int_transit408",
-      "id" : 100,
+      "id" : 99,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25901,7 +25847,7 @@
     },
     {
       "name" : "int_transit418",
-      "id" : 101,
+      "id" : 100,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25931,8 +25877,8 @@
       ]
     },
     {
-      "name" : "int_sink89",
-      "id" : 102,
+      "name" : "int_sink91",
+      "id" : 101,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25959,7 +25905,7 @@
           ],
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 89,
+            "line" : 91,
             "column" : 12,
             "source_fragment" : "return"
           }
@@ -25968,7 +25914,7 @@
     },
     {
       "name" : "act_1",
-      "id" : 103,
+      "id" : 102,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -25998,7 +25944,7 @@
     },
     {
       "name" : "int355",
-      "id" : 104,
+      "id" : 103,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -27887,37 +27833,8 @@
           }
         },
         {
-          "name" : "tbl_int344",
-          "id" : 33,
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 344,
-            "column" : 50,
-            "source_fragment" : "="
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [96],
-          "actions" : ["int344"],
-          "base_default_next" : "node_60",
-          "next_tables" : {
-            "int344" : "node_60"
-          },
-          "default_entry" : {
-            "action_id" : 96,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
           "name" : "tbl_int347",
-          "id" : 34,
+          "id" : 33,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
             "line" : 347,
@@ -27931,14 +27848,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [97],
+          "action_ids" : [96],
           "actions" : ["int347"],
           "base_default_next" : "tbl_act_0",
           "next_tables" : {
             "int347" : "tbl_act_0"
           },
           "default_entry" : {
-            "action_id" : 97,
+            "action_id" : 96,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -27946,7 +27863,7 @@
         },
         {
           "name" : "tbl_act_0",
-          "id" : 35,
+          "id" : 34,
           "key" : [],
           "match_type" : "exact",
           "type" : "simple",
@@ -27954,14 +27871,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [99],
+          "action_ids" : [98],
           "actions" : ["act_0"],
-          "base_default_next" : "node_63",
+          "base_default_next" : "node_61",
           "next_tables" : {
-            "act_0" : "node_63"
+            "act_0" : "node_61"
           },
           "default_entry" : {
-            "action_id" : 99,
+            "action_id" : 98,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -27969,7 +27886,7 @@
         },
         {
           "name" : "tbl_int_transit401",
-          "id" : 36,
+          "id" : 35,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 401,
@@ -27983,14 +27900,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [98],
+          "action_ids" : [97],
           "actions" : ["int_transit401"],
-          "base_default_next" : "node_65",
+          "base_default_next" : "node_63",
           "next_tables" : {
-            "int_transit401" : "node_65"
+            "int_transit401" : "node_63"
           },
           "default_entry" : {
-            "action_id" : 98,
+            "action_id" : 97,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -27998,7 +27915,7 @@
         },
         {
           "name" : "tbl_Int_transit_int_hop_exceeded",
-          "id" : 37,
+          "id" : 36,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 407,
@@ -28027,7 +27944,7 @@
         },
         {
           "name" : "tbl_int_transit408",
-          "id" : 38,
+          "id" : 37,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 408,
@@ -28041,14 +27958,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [100],
+          "action_ids" : [99],
           "actions" : ["int_transit408"],
-          "base_default_next" : "node_69",
+          "base_default_next" : "node_67",
           "next_tables" : {
-            "int_transit408" : "node_69"
+            "int_transit408" : "node_67"
           },
           "default_entry" : {
-            "action_id" : 100,
+            "action_id" : 99,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -28056,7 +27973,7 @@
         },
         {
           "name" : "tbl_Int_transit_int_hop_cnt_increment",
-          "id" : 39,
+          "id" : 38,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 411,
@@ -28085,7 +28002,7 @@
         },
         {
           "name" : "egress.Int_transit.tb_int_transit",
-          "id" : 40,
+          "id" : 39,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 37,
@@ -28115,7 +28032,7 @@
         },
         {
           "name" : "egress.Int_transit.tb_int_inst_0003",
-          "id" : 41,
+          "id" : 40,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 292,
@@ -28489,7 +28406,7 @@
         },
         {
           "name" : "egress.Int_transit.tb_int_inst_0407",
-          "id" : 42,
+          "id" : 41,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 334,
@@ -28863,7 +28780,7 @@
         },
         {
           "name" : "tbl_int_transit418",
-          "id" : 43,
+          "id" : 42,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 418,
@@ -28877,14 +28794,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [101],
+          "action_ids" : [100],
           "actions" : ["int_transit418"],
           "base_default_next" : "tbl_Int_transit_int_update_ip_ac",
           "next_tables" : {
             "int_transit418" : "tbl_Int_transit_int_update_ip_ac"
           },
           "default_entry" : {
-            "action_id" : 101,
+            "action_id" : 100,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -28892,7 +28809,7 @@
         },
         {
           "name" : "tbl_Int_transit_int_update_ip_ac",
-          "id" : 44,
+          "id" : 43,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 421,
@@ -28908,9 +28825,9 @@
           "direct_meters" : null,
           "action_ids" : [89],
           "actions" : ["egress.Int_transit.int_update_ip_ac"],
-          "base_default_next" : "node_76",
+          "base_default_next" : "node_74",
           "next_tables" : {
-            "egress.Int_transit.int_update_ip_ac" : "node_76"
+            "egress.Int_transit.int_update_ip_ac" : "node_74"
           },
           "default_entry" : {
             "action_id" : 89,
@@ -28921,7 +28838,7 @@
         },
         {
           "name" : "tbl_Int_transit_int_update_udp_ac",
-          "id" : 45,
+          "id" : 44,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 424,
@@ -28937,9 +28854,9 @@
           "direct_meters" : null,
           "action_ids" : [91],
           "actions" : ["egress.Int_transit.int_update_udp_ac"],
-          "base_default_next" : "node_78",
+          "base_default_next" : "node_76",
           "next_tables" : {
-            "egress.Int_transit.int_update_udp_ac" : "node_78"
+            "egress.Int_transit.int_update_udp_ac" : "node_76"
           },
           "default_entry" : {
             "action_id" : 91,
@@ -28950,7 +28867,7 @@
         },
         {
           "name" : "tbl_Int_transit_int_update_shim_ac",
-          "id" : 46,
+          "id" : 45,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 427,
@@ -28979,7 +28896,7 @@
         },
         {
           "name" : "tbl_act_1",
-          "id" : 47,
+          "id" : 46,
           "key" : [],
           "match_type" : "exact",
           "type" : "simple",
@@ -28987,25 +28904,25 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [103],
+          "action_ids" : [102],
           "actions" : ["act_1"],
-          "base_default_next" : "node_81",
+          "base_default_next" : "node_79",
           "next_tables" : {
-            "act_1" : "node_81"
+            "act_1" : "node_79"
           },
           "default_entry" : {
-            "action_id" : 103,
+            "action_id" : 102,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
           }
         },
         {
-          "name" : "tbl_int_sink89",
-          "id" : 48,
+          "name" : "tbl_int_sink91",
+          "id" : 47,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 89,
+            "line" : 91,
             "column" : 12,
             "source_fragment" : "return"
           },
@@ -29016,14 +28933,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [102],
-          "actions" : ["int_sink89"],
-          "base_default_next" : "node_83",
+          "action_ids" : [101],
+          "actions" : ["int_sink91"],
+          "base_default_next" : "node_81",
           "next_tables" : {
-            "int_sink89" : "node_83"
+            "int_sink91" : "node_81"
           },
           "default_entry" : {
-            "action_id" : 102,
+            "action_id" : 101,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -29031,10 +28948,10 @@
         },
         {
           "name" : "tbl_Int_sink_remove_sink_header",
-          "id" : 49,
+          "id" : 48,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 93,
+            "line" : 95,
             "column" : 12,
             "source_fragment" : "remove_sink_header()"
           },
@@ -29047,9 +28964,9 @@
           "direct_meters" : null,
           "action_ids" : [93],
           "actions" : ["egress.Int_sink.remove_sink_header"],
-          "base_default_next" : "node_86",
+          "base_default_next" : "node_84",
           "next_tables" : {
-            "egress.Int_sink.remove_sink_header" : "node_86"
+            "egress.Int_sink.remove_sink_header" : "node_84"
           },
           "default_entry" : {
             "action_id" : 93,
@@ -29060,7 +28977,7 @@
         },
         {
           "name" : "egress.Int_sink.Int_report.tb_int_reporting",
-          "id" : 50,
+          "id" : 49,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_report.p4",
             "line" : 119,
@@ -29076,10 +28993,10 @@
           "direct_meters" : null,
           "action_ids" : [92, 53],
           "actions" : ["egress.Int_sink.Int_report.send_report", "NoAction"],
-          "base_default_next" : "node_88",
+          "base_default_next" : "node_86",
           "next_tables" : {
-            "egress.Int_sink.Int_report.send_report" : "node_88",
-            "NoAction" : "node_88"
+            "egress.Int_sink.Int_report.send_report" : "node_86",
+            "NoAction" : "node_86"
           },
           "default_entry" : {
             "action_id" : 53,
@@ -29090,7 +29007,7 @@
         },
         {
           "name" : "tbl_int355",
-          "id" : 51,
+          "id" : 50,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
             "line" : 355,
@@ -29104,14 +29021,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [104],
+          "action_ids" : [103],
           "actions" : ["int355"],
           "base_default_next" : null,
           "next_tables" : {
             "int355" : null
           },
           "default_entry" : {
-            "action_id" : 104,
+            "action_id" : 103,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -29149,49 +29066,6 @@
         {
           "name" : "node_58",
           "id" : 21,
-          "source_info" : {
-            "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
-            "line" : 343,
-            "column" : 11,
-            "source_fragment" : "eg_intr_md.egress_port == 1 && ..."
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "and",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "==",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["standard_metadata", "egress_port"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x0001"
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "d2b",
-                  "left" : null,
-                  "right" : {
-                    "type" : "field",
-                    "value" : ["ipv6", "$valid$"]
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "tbl_int344",
-          "false_next" : "node_60"
-        },
-        {
-          "name" : "node_60",
-          "id" : 22,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
             "line" : 345,
@@ -29233,8 +29107,8 @@
           "false_next" : "tbl_act_0"
         },
         {
-          "name" : "node_63",
-          "id" : 23,
+          "name" : "node_61",
+          "id" : 22,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 400,
@@ -29260,11 +29134,11 @@
             }
           },
           "true_next" : "tbl_int_transit401",
-          "false_next" : "node_65"
+          "false_next" : "node_63"
         },
         {
-          "name" : "node_65",
-          "id" : 24,
+          "name" : "node_63",
+          "id" : 23,
           "expression" : {
             "type" : "expression",
             "value" : {
@@ -29283,12 +29157,12 @@
               }
             }
           },
-          "true_next" : "node_66",
-          "false_next" : "node_69"
+          "true_next" : "node_64",
+          "false_next" : "node_67"
         },
         {
-          "name" : "node_66",
-          "id" : 25,
+          "name" : "node_64",
+          "id" : 24,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 406,
@@ -29330,11 +29204,11 @@
             }
           },
           "true_next" : "tbl_Int_transit_int_hop_exceeded",
-          "false_next" : "node_69"
+          "false_next" : "node_67"
         },
         {
-          "name" : "node_69",
-          "id" : 26,
+          "name" : "node_67",
+          "id" : 25,
           "expression" : {
             "type" : "expression",
             "value" : {
@@ -29357,8 +29231,8 @@
           "false_next" : "tbl_act_1"
         },
         {
-          "name" : "node_76",
-          "id" : 27,
+          "name" : "node_74",
+          "id" : 26,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 423,
@@ -29377,11 +29251,11 @@
             }
           },
           "true_next" : "tbl_Int_transit_int_update_udp_ac",
-          "false_next" : "node_78"
+          "false_next" : "node_76"
         },
         {
-          "name" : "node_78",
-          "id" : 28,
+          "name" : "node_76",
+          "id" : 27,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_transit.p4",
             "line" : 426,
@@ -29403,11 +29277,11 @@
           "false_next" : "tbl_act_1"
         },
         {
-          "name" : "node_81",
-          "id" : 29,
+          "name" : "node_79",
+          "id" : 28,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 88,
+            "line" : 90,
             "column" : 12,
             "source_fragment" : "!hdr.int_header.isValid()"
           },
@@ -29429,12 +29303,12 @@
               }
             }
           },
-          "true_next" : "tbl_int_sink89",
-          "false_next" : "node_83"
+          "true_next" : "tbl_int_sink91",
+          "false_next" : "node_81"
         },
         {
-          "name" : "node_83",
-          "id" : 30,
+          "name" : "node_81",
+          "id" : 29,
           "expression" : {
             "type" : "expression",
             "value" : {
@@ -29453,15 +29327,15 @@
               }
             }
           },
-          "true_next" : "node_84",
-          "false_next" : "node_88"
+          "true_next" : "node_82",
+          "false_next" : "node_86"
         },
         {
-          "name" : "node_84",
-          "id" : 31,
+          "name" : "node_82",
+          "id" : 30,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 91,
+            "line" : 93,
             "column" : 12,
             "source_fragment" : "standard_metadata.instance_type == 0 && meta.int_metadata.remove_int == 1"
           },
@@ -29500,14 +29374,14 @@
             }
           },
           "true_next" : "tbl_Int_sink_remove_sink_header",
-          "false_next" : "node_86"
+          "false_next" : "node_84"
         },
         {
-          "name" : "node_86",
-          "id" : 32,
+          "name" : "node_84",
+          "id" : 31,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/int_sink.p4",
-            "line" : 95,
+            "line" : 97,
             "column" : 12,
             "source_fragment" : "standard_metadata.instance_type == 1"
           },
@@ -29526,11 +29400,11 @@
             }
           },
           "true_next" : "egress.Int_sink.Int_report.tb_int_reporting",
-          "false_next" : "node_88"
+          "false_next" : "node_86"
         },
         {
-          "name" : "node_88",
-          "id" : 33,
+          "name" : "node_86",
+          "id" : 32,
           "source_info" : {
             "filename" : "/home/lchampagne/Documents/Test/int_v1.0/int.p4",
             "line" : 355,
@@ -29560,7 +29434,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 217,
+        "line" : 221,
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -29586,7 +29460,7 @@
       "id" : 1,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 237,
+        "line" : 241,
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -29612,7 +29486,7 @@
       "id" : 2,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 257,
+        "line" : 261,
         "column" : 8,
         "source_fragment" : "update_checksum(hdr.ndp.isValid(), ..."
       },
@@ -29638,7 +29512,7 @@
       "id" : 3,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 276,
+        "line" : 280,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -29664,7 +29538,7 @@
       "id" : 4,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 291,
+        "line" : 295,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -29707,7 +29581,7 @@
       "id" : 5,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 317,
+        "line" : 321,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },
@@ -29733,7 +29607,7 @@
       "id" : 6,
       "source_info" : {
         "filename" : "/home/lchampagne/Documents/Test/int_v1.0/include/parser.p4",
-        "line" : 336,
+        "line" : 340,
         "column" : 8,
         "source_fragment" : "update_checksum_with_payload( ..."
       },

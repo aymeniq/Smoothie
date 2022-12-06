@@ -157,6 +157,7 @@ parser ParserImpl(packet_in packet, out headers hdr, inout metadata meta, inout 
         packet.extract(hdr.int_header);
         // DAMU: warning (from TOFINO): Parser "verify" is currently unsupported
         /*verify(hdr.int_header.ver == INT_VERSION, error.INTVersionNotSupported);*/
+        packet.extract(hdr.int_data, (bit<32>) (hdr.int_shim.len - 3)*32);
         transition accept;
     }
 }
@@ -203,6 +204,9 @@ control DeparserImpl(packet_out packet, in headers hdr) {
         packet.emit(hdr.int_egress_tstamp);   // bit 6
         packet.emit(hdr.int_level2_port_ids);   // bit 7
         packet.emit(hdr.int_egress_port_tx_util);  // bit 8
+
+        //previous nodes int data
+        packet.emit(hdr.int_data);
 
     }
 }

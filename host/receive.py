@@ -27,6 +27,7 @@ def handle_pkt(pkt):
         dst_ip = pkt[IP].dst
         id_tup = (src_ip, dst_ip)
         print (id_tup)
+        print (pkt[UDP].payload)
         if id_tup not in totals:
             totals[id_tup] = 0
         totals[id_tup] += 1

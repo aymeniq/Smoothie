@@ -66,6 +66,8 @@ control Int_sink(inout headers hdr, inout metadata meta, inout standard_metadata
             hdr.udp.len = hdr.udp.len - len_bytes;
         }
 
+        hdr.int_data.setInvalid();
+
         // remove INT data added in INT sink
         hdr.int_switch_id.setInvalid();
         hdr.int_port_ids.setInvalid();
