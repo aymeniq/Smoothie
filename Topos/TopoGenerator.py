@@ -67,6 +67,7 @@ class File_generator():
 
             if is_spine:
                 output += "table_add ipv6_lpm ipv6_forward {}/128 => {} {}\n".format(ip, mac, i+1)
+                output += "table_add ipv4_lpm ipv4_forward 10.0.{}.0/24 => {} {}\n".format(i+1, mac, i+1)
                 output += "table_add ipv6_lpm ipv6_forward 2002::a00:{}00/120 => {} {}\n".format(i+1, mac, i+1)
             else:
                 output += "table_add ipv6_lpm ipv6_forward {}/128 => {} {}\n".format(ip, mac, i+nbr_h+1)
@@ -74,12 +75,13 @@ class File_generator():
                 nbr_uplink+=1
                 cnt+=1
 
-        output += "table_add ipv6_lpm ecmp_group 2002::/96 => 1 {}\n".format(nbr_uplink)
-
-        if not is_spine:     
+        if not is_spine:
+            output += "table_add ipv6_lpm ecmp_group 2002::/96 => 1 {}\n".format(nbr_uplink)
+            output += "table_add ipv4_lpm ipv4_forward 10.0.0.0/8 => 00:00:00:00:00:00 {}\n".format(self.hosts_per_leaf+1) #forward to the first spine   
             for x in range(1, self.hosts_per_leaf+1):
                 ip = "10.0.{}.{}".format(idx+1, x)
                 output += "table_add ipv6_lpm ipv6_forward {}/128 => {} {}\n".format(converttov6(ip), ip_address_to_mac(ip)%(0), x)
+                output += "table_add ipv4_lpm ipv4_forward {}/32 => {} {}\n".format(ip, ip_address_to_mac(ip)%(0), x)
                 output+="table_add srv6_my_sid srv6_end {}/128 =>\n".format(mac_to_ipv6_linklocal(ip_address_to_mac(ip)%(1)))
 
         for x in self.G.edges(idx):
@@ -271,7 +273,7 @@ def calOddNum(topoMatrix, sNum):
     return count
 
 if __name__ == '__main__':
-    topoList1 = genSpineLeaf(15, file="test.json")
+    topoList1 = genSpineLeaf(6, file="test.json")
     print(len(topoList1))
     #print(topoList1)
     A = np.array(topoList1)
