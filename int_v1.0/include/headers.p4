@@ -30,6 +30,7 @@
 #define PKT_INSTANCE_TYPE_RESUBMIT 6
 
 
+
 // CPU_PORT specifies the P4 port number associated to controller packet-in and
 // packet-out. All packets forwarded via this port will be delivered to the
 // controller as P4Runtime PacketIn messages. Similarly, PacketOut messages from
@@ -279,12 +280,17 @@ struct ecmp_metadata_t {
     bit<14> ecmp_group_id;
 }
 
+const bit<8> CLONE_FL_1  = 1;
+
 struct metadata {
+    @field_list(CLONE_FL_1)
     int_metadata_t       int_metadata;
     intl4_shim_t         int_shim;
+    @field_list(CLONE_FL_1)
     layer34_metadata_t   layer34_metadata;
     ecmp_metadata_t      ecmp_metadata;
     bit<16>              tcpLen;
+    @field_list(CLONE_FL_1)
     bool                 is_multicast;
     ipv6_addr_t          next_srv6_sid;
     bit<8>               ip_proto;
@@ -296,6 +302,7 @@ struct metadata {
     bit<13> flowlet_register_index;
     //bit<16> flowlet_id;
     bool flow_source;
+    @field_list(CLONE_FL_1)
     bit<8> update_path;
 }
 
