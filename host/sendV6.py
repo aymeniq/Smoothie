@@ -18,8 +18,15 @@ from scapy.all import Ether, IP, IPv6, sendp, get_if_hwaddr, get_if_list, TCP, R
 import sys
 import random, string
 import time
-from ipaddress import IPv6Address
+from ipaddress import IPv6Address, IPv4Address
 from p4utils.utils.helper import *
+
+def is_ip_address(ip_string):
+   try:
+       ip_object = IPv4Address(ip_string)
+       return True
+   except ValueError:
+       return False
 
 def mac_to_v4(mac):
     mac_value = int(mac.translate({ord(' '): None, ord('.'): None, ord(':'): None, ord('-'): None}), 16)
@@ -43,11 +50,13 @@ def ip_from_topo(n_id):
     conf = load_conf("topology.json")
     nodes = conf.get("nodes")
     for x in nodes:
+        #print(n_id)
         if x.get("id") == n_id:
             return x.get("ip").split('/')[0]
 
 
 def send_random_traffic(dst, delay):
+    start_time = time.process_time()
     dst_mac = None
     dst_ip = None
     src_inf = [i for i in get_if_list() if i.endswith('-eth0')]
@@ -57,10 +66,19 @@ def send_random_traffic(dst, delay):
     src_mac = get_if_hwaddr(src_inf[0])
     src_ip = converttov6(mac_to_v4(src_mac))
 
-    dst_ip = ip_from_topo(dst)
-    if dst_ip == None:
-        print ("Invalid host to send to")
-        sys.exit(1)
+    if not dst:
+        conf = load_conf("topology.json")
+        nodes = conf.get("nodes")
+        n = random.choice(nodes)
+        dst = n.get("ip").split('/')[0]
+
+    if is_ip_address(dst):
+        dst_ip = dst
+    else:
+        dst_ip = ip_from_topo(dst)
+        if dst_ip == None:
+            print ("Invalid host to send to")
+            sys.exit(1)
     dst_mac = ip_address_to_mac(dst_ip) % (0)
     dst_ip = converttov6(dst_ip)
 
@@ -89,11 +107,14 @@ def send_random_traffic(dst, delay):
                 output_stream.flush()
                 pkt_cnt = 0
                 last_sec = time.time()
+    print("%s" % (time.process_time() - start_time))
     print ("Sent %s packets in total" % total_pkts)
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: python send.py dst_host_name")
+    if len(sys.argv) == 1:
+        send_random_traffic(None, 0)
+    elif len(sys.argv) < 3:
+        print("Usage: python sendV6.py dst_host_name delai")
         sys.exit(1)
     else:
         #print(ip_from_topo(sys.argv[1]))

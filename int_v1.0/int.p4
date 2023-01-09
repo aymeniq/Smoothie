@@ -336,6 +336,8 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
             exit;
         }
 
+        if (eg_intr_md.egress_port == 1 && hdr.ipv6.isValid()) hdr.ipv6.hop_limit = 255;
+
         // If this is a multicast packet (flag set by l2_ternary_table), make
         // sure we are not replicating the packet on the same port where it was
         // received. This is useful to avoid broadcasting NDP requests on the
@@ -352,7 +354,8 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
 		// when frame duplicate on the INT report port then reformat frame into INT report frame
 		Int_sink.apply(hdr, meta, eg_intr_md);
 
-        if(hdr.tcp.isValid()) meta.tcpLen = hdr.ipv4.totalLen - (bit<16>)(hdr.ipv4.ihl)*4;
+        if(hdr.tcp.isValid() && hdr.ipv4.isValid()) meta.tcpLen = hdr.ipv4.totalLen - (bit<16>)(hdr.ipv4.ihl)*4;
+        if(hdr.tcp.isValid() && hdr.ipv6.isValid()) meta.tcpLen = hdr.ipv6.payload_len;
 	}
 }
 

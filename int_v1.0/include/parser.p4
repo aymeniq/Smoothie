@@ -319,7 +319,7 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
 
 
         update_checksum_with_payload(
-            hdr.tcp.isValid(),
+            hdr.tcp.isValid() && hdr.ipv4.isValid(),
             {   hdr.ipv4.srcAddr,
                 hdr.ipv4.dstAddr,
                 8w0,
@@ -338,7 +338,26 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
             hdr.tcp.csum, HashAlgorithm.csum16);
 
         update_checksum_with_payload(
-            hdr.tcp.isValid() && hdr.int_header.isValid(),
+            hdr.tcp.isValid() && hdr.ipv6.isValid(),
+            {   hdr.ipv6.src_addr,
+                hdr.ipv6.dst_addr,
+                8w0,
+                hdr.ipv6.next_hdr,
+                meta.tcpLen,
+                hdr.tcp.srcPort,
+                hdr.tcp.dstPort,
+                hdr.tcp.seqNum,
+                hdr.tcp.ackNum,
+                hdr.tcp.dataOffset,
+                hdr.tcp.reserved,
+                hdr.tcp.flags,
+                hdr.tcp.winSize,
+                hdr.tcp.urgPoint
+            },
+            hdr.tcp.csum, HashAlgorithm.csum16);
+
+        update_checksum_with_payload(
+            hdr.tcp.isValid() && hdr.int_header.isValid() && hdr.ipv4.isValid(),
             {   hdr.ipv4.srcAddr,
                 hdr.ipv4.dstAddr,
                 8w0,

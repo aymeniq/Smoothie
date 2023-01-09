@@ -7,11 +7,11 @@ import pprint
 import logging
 from copy import copy, deepcopy
 import io
-from influxdb import InfluxDBClient
+#from influxdb import InfluxDBClient
 from ipaddress import IPv6Address
 from p4utils.utils.helper import *
 import networkx as nx
-import matplotlib
+#import matplotlib
 import random
 from helper import *
 from p4utils.utils.sswitch_thrift_API import SimpleSwitchThriftAPI
@@ -20,7 +20,7 @@ from p4utils.utils.helper import load_topo
 
 queue_size = 64
 log_format = "[%(asctime)s] [%(levelname)s] - %(message)s"
-logging.basicConfig(level=logging.ERROR, format=log_format, filename="log/int_collector.log", force=True)
+logging.basicConfig(level=logging.ERROR, format=log_format, filename="log/int_collector.log")
 logger = logging.getLogger('int_collector')
 #CONTROLLER_PORT = 4
 
@@ -71,8 +71,8 @@ class NetGraph(object):
             link[2][node2+"weight"] = 0
 
 
-        nx.draw(self.G)
-        matplotlib.pyplot.show()
+        #nx.draw(self.G)
+        #matplotlib.pyplot.show()
             
 
     def update_infos(self, report):
