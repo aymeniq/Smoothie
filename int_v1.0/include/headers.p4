@@ -304,6 +304,8 @@ struct metadata {
     bool flow_source;
     @field_list(CLONE_FL_1)
     bit<8> update_path;
+
+    bit<8> proportion;
 }
 
 header int_data_t {

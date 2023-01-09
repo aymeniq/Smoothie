@@ -45,7 +45,7 @@ def get_args():
                         action='store_true', required=False, default=False)
     parser.add_argument('--clean-dir', help='Cleans old log files and closes.',
                         action='store_true', required=False, default=False)
-    parser.add_argument('--influx', help='INT collector DB access (InfluxDB host:port)', const="InfluxDB 172.18.0.3:8086",
+    parser.add_argument('--influx', help='INT collector DB access (InfluxDB host:port)', const="InfluxDB 0.0.0.0:8086",
                     type=str, action="store", nargs='?')          
 
     return parser.parse_args()
@@ -61,3 +61,5 @@ app = AppRunner(args.config,
 app.startNetwork()
 print("pkill -f \"python3 ./src/int_collector_influx.py\"")
 os.system("pkill -f \"python3 ./src/int_collector_influx.py\"")
+print("ip a | grep -o \"\\([[:alnum:]]\\+\\_\\)\\?[[:alnum:]]\\+\\_[[:alnum:]]\\+@[[:alnum:]]\\+\" | sed 's/\\@.*$//' | while read line ; do sudo ip link delete \"$line\"; done")
+os.system("ip a | grep -o \"\\([[:alnum:]]\\+\\_\\)\\?[[:alnum:]]\\+\\_[[:alnum:]]\\+@[[:alnum:]]\\+\" | sed 's/\\@.*$//' | while read line ; do sudo ip link delete \"$line\"; done")

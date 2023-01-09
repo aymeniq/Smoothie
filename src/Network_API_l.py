@@ -32,6 +32,10 @@ from src.helper import *
 
 from src.networking import create_int_collection_network, start_int_collector
 
+import inspect
+
+#print(inspect.getfile(ThriftClient))
+
 
 class NetworkAPI(Topo):
     """Network definition and initialization API.
@@ -1164,6 +1168,9 @@ class NetworkAPI(Topo):
         info('Distributing tasks...\n')
         self.distribute_tasks()
         output('All tasks distributed correctly!\n')
+
+        # for h in self.net.hosts:
+        #      h.cmd("ls >> cool.txt")
 
         if self.cli_enabled:
             self.start_net_cli()

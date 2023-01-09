@@ -4,7 +4,7 @@ set_queue_depth 64
 table_add tb_activate_flow_dest NoAction 1 =>
 
 table_add tb_activate_source activate_source 1 =>
-table_add tb_int_source configure_source 10.0.0.3&&&0xFFFFFFFF 10.0.0.2&&&0xFFFFFFFF 0x11FF&&&0xFFFF 0x22FF&&&0xFFFF => 4 2 2 0xC0 0
+table_add tb_int_source configure_source 10.0.0.3&&&0xFFFFFFFF 10.0.0.2&&&0xFFFFFFFF 0x11FF&&&0xFFFF 0x22FF&&&0xFFFF => 4 2 2 0xC0 1 0
 
 table_add tb_int_sink configure_sink 1 => 4
 mirroring_add 1 4
