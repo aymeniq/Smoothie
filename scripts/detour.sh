@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 
 task(){
+<<<<<<< HEAD:scripts/detour.sh
    { python3 cool2.py $1 $2 ; } &>> ../benchmark/detour/$s\_$d.txt
+=======
+   { python3 cool2.py $1 $2 ; } &>> benchmark/detour/$s\_$d.txt}
+>>>>>>> 0e1e99602cc4d64ee1e60d044a5cd0905969b26f:detour.sh
 }
-
 for d in {0..5}
 do
 	s=16
