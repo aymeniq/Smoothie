@@ -325,6 +325,18 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
 }
 
 control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t eg_intr_md) {
+
+    table host_port {
+        key = {
+            eg_intr_md.egress_port: exact;    
+        }
+        actions = {
+            NoAction;
+        }
+        size=256;
+        default_action=NoAction;
+    }
+
 	apply {
 
         log_msg("Q depth: {}", {eg_intr_md.enq_qdepth});
@@ -336,14 +348,12 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
             exit;
         }
 
-        if (eg_intr_md.egress_port == 1 && hdr.ipv6.isValid()) hdr.ipv6.hop_limit = 255;
+        if (host_port.apply().hit && hdr.ipv6.isValid()) hdr.ipv6.hop_limit = 255;
 
         // If this is a multicast packet (flag set by l2_ternary_table), make
         // sure we are not replicating the packet on the same port where it was
         // received. This is useful to avoid broadcasting NDP requests on the
         // ingress port.
-        /*if(eg_intr_md.egress_port == 1 &&
-           hdr.ipv6.isValid()){hdr.ipv6.hop_limit = 255;}//no router in the network therefore packet will be dropped if hop_limit different*/
         if (meta.is_multicast == true &&
             eg_intr_md.ingress_port == eg_intr_md.egress_port) {
             mark_to_drop(eg_intr_md);

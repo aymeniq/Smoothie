@@ -29,7 +29,7 @@ class File_generator():
     def get_mac(self, src, dst):
         return self.links(src+dst)
 
-    def generate_command(self, s, idx, nbr_h):
+    def generate_command(self, s, idx, nbr_h, proportion, timeout):
         output = "set_queue_depth 64\n"
 
         l = len(self.G.edges(idx))
@@ -42,10 +42,11 @@ class File_generator():
 
         if not is_spine:
             for x in range(1, nbr_h+1):
-                output+= "table_add tb_activate_flow_dest NoAction {} =>\n".format(x)
+                output+= "table_add tb_activate_flow_dest set_timeout {} => {}\n".format(x, timeout)
                 output+= "table_add tb_activate_source activate_source {} =>\n".format(x)
+                output+= "table_add host_port NoAction {} =>\n".format(x)
 
-            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 0\n"
+            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 {} 0\n".format(proportion)
 
             output += "mirroring_add 1 {}\n".format(l+1)
             for x in range(1, nbr_h+1):
@@ -106,9 +107,9 @@ class File_generator():
 
         return output
         
-    def generate_commands(self):
+    def generate_commands(self, proportion, timeout):
         for i, x in enumerate(self.switches):
-            res = self.generate_command(x, i, self.hosts_per_leaf)
+            res = self.generate_command(x, i, self.hosts_per_leaf, proportion, timeout)
             f = open(x+".txt", "w")
             f.write(res)
             f.close()
@@ -223,7 +224,7 @@ def genFatTree(maxSNum, file=None):  #SNum must be 10,15,20,25,30...
 
     return topoList
 
-def genSpineLeaf(maxSNum, file=None):  #SNum must be 3,6,9,12,15...
+def genSpineLeaf(maxSNum, proportion=1, timeout=200000, file=None):  #SNum must be 3,6,9,12,15...
     sys.setrecursionlimit(1000000)
     swSum = 3
     links = []
@@ -255,7 +256,7 @@ def genSpineLeaf(maxSNum, file=None):  #SNum must be 3,6,9,12,15...
 
         f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 2)
         f.write_to_file()
-        f.generate_commands()
+        f.generate_commands(proportion, timeout)
 
     #print(switches)
     #print(links)
@@ -273,7 +274,11 @@ def calOddNum(topoMatrix, sNum):
     return count
 
 if __name__ == '__main__':
-    topoList1 = genSpineLeaf(6, file="test.json")
+    if len(sys.argv) < 4:
+        print("Usage: python TopoGenerator.py nbr_switches proportion_of_Int flowlet_timeout")
+        sys.exit(1)
+    
+    topoList1 = genSpineLeaf(sys.argv[1], sys.argv[2], sys.argv[3], file="test.json")
     print(len(topoList1))
     #print(topoList1)
     A = np.array(topoList1)
