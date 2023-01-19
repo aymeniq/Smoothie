@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 task(){
-   { python3 cool2.py $1 $2 ; } &>> benchmark/detour/$s\_$d.txt
+   { python3 cool2.py $1 $2 ; } &>> ../benchmark/detour/$s\_$d.txt
 }
 
 for d in {0..5}

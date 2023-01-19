@@ -1,7 +1,9 @@
 set_queue_depth 64
 #set_queue_rate 3
 
-table_add tb_activate_flow_dest NoAction 1 =>
+table_add tb_activate_flow_dest set_timeout 1 => 200000
+
+table_add host_port NoAction 1 =>
 
 table_add tb_activate_source activate_source 1 =>
 

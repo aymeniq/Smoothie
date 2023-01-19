@@ -306,6 +306,7 @@ struct metadata {
     bit<8> update_path;
 
     bit<8> proportion;
+    bit<48> flowlet_timeout;
 }
 
 header int_data_t {

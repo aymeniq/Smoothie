@@ -5,7 +5,6 @@
 #define REGISTER_SIZE 8192
 #define TIMESTAMP_WIDTH 48
 #define ID_WIDTH 16
-#define FLOWLET_TIMEOUT 48w200000
 
 control Flowlet(inout headers hdr, inout metadata meta, inout standard_metadata_t standard_metadata) {
 
@@ -43,11 +42,15 @@ control Flowlet(inout headers hdr, inout metadata meta, inout standard_metadata_
     action update_path(){
        meta.update_path = 1;
     }
+
+    action set_timeout(bit<48> timeout){
+        meta.flowlet_timeout = timeout;
+    }
     
     // table used to activate flow monitoring for an egress port of the switch
     table tb_activate_flow_dest {
         actions = {
-            NoAction;
+            set_timeout;
         }
         key = {
             standard_metadata.egress_spec: exact;
@@ -68,7 +71,7 @@ control Flowlet(inout headers hdr, inout metadata meta, inout standard_metadata_
             log_msg("last time: {}", {meta.flowlet_last_stamp});
 
             //check if inter-packet gap is > FLOWLET_TIMEOUT
-            if (meta.flowlet_time_diff > FLOWLET_TIMEOUT){
+            if (meta.flowlet_time_diff > meta.flowlet_timeout){
                 update_path();
             }
         }

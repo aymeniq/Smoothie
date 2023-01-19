@@ -120,7 +120,7 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
         tb_activate_source.apply();
 
         bit<8> res = 0;
-        random<bit<8>>(res, 1, meta.proportion);
+        random<bit<8>>(res, 1, meta.proportion+1);
         
         if (meta.int_metadata.source == 1 && hdr.ipv4.isValid()) {
             if(res != 1){
