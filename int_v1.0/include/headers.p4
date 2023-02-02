@@ -212,7 +212,8 @@ header int_hop_latency_t {
 
 header int_q_occupancy_t {
     bit<8>  q_id;
-    bit<24> q_occupancy;
+    bit<1> trend;
+    bit<23> q_occupancy;
 }
 
 header int_ingress_tstamp_t {

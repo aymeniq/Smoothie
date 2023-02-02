@@ -76,7 +76,7 @@ class NetGraph(object):
             
 
     def update_infos(self, report):
-        start_time = time.time()
+        #start_time = time.time()
         dst = src = 0
         queue_load = 0
         current_path = []
@@ -103,7 +103,7 @@ class NetGraph(object):
         current_path.insert(0, src_node)
         current_path.insert(0, src_host)
         current_path.append(dst_host)
-        print(current_path)
+        #print(current_path)
 
         if report.update_path and report.ethertype == 0x86dd:
             
@@ -111,9 +111,12 @@ class NetGraph(object):
             if self.weight_path(current_path) < self.weight_path(p)+self.delta:
                 return
 
+            print("p1 = {}  w={}".format(current_path, self.weight_path(current_path)))
+            print("p2 = {}  w={}".format(p, self.weight_path(p)))
+
             res = self.path_to_ips(p)
             self.export_path(res, self.G.get_p4switch_id(p[1]), self.G.get_thrift_port(p[1]))
-            print("update_infos : --- %s seconds ---" % (time.time() - start_time))
+            #print("update_infos : --- %s seconds ---" % (time.time() - start_time))
 
 
     def weight_path(self, p):
@@ -144,9 +147,6 @@ class NetGraph(object):
         ids = random.sample(range(len_p), 2)
         p1 = paths[ids[0]]
         p2 = paths[ids[1]]
-
-        print("p1 = {}  w={}".format(p1, self.weight_path(p1)))
-        print("p2 = {}  w={}".format(p2, self.weight_path(p2)))
 
         return self.compare_paths(p1, p2)
 
@@ -209,12 +209,20 @@ class HopMetadata:
         if self.ins_map & 0x20:
             self.hop_latency  = int.from_bytes(self.data.read(4), byteorder='big')
             logger.debug('parse hop latency: %d' %  self.hop_latency)
+
+    def __parse_trend(self):
+        LEADING_BIT_MASK =  0b100000000000000000000000
+        VALUE_BIT_MASK =  0b011111111111111111111111
+
+        self.trend = (self.queue_occupancy & LEADING_BIT_MASK) >> 23
+        self.queue_occupancy = self.queue_occupancy & VALUE_BIT_MASK
     
     def __parse_queue_occupancy(self):
         if self.ins_map & 0x10:
             self.queue_occupancy_id = int.from_bytes(self.data.read(1), byteorder='big')
             self.queue_occupancy = int.from_bytes(self.data.read(3), byteorder='big')
-            logger.debug('parse queue_occupancy_id: %d, queue_occupancy: %d' % (self.queue_occupancy_id, self.queue_occupancy))
+            self.__parse_trend()
+            logger.debug('parse queue_occupancy_id: %d, queue_occupancy: %d, trend: %d' % (self.queue_occupancy_id, self.queue_occupancy, self.trend))
             
     def __parse_ingress_timestamp(self):
         if self.ins_map & 0x08:
@@ -225,11 +233,12 @@ class HopMetadata:
         if self.ins_map & 0x04:
             self.egress_timestamp  = int.from_bytes(self.data.read(8), byteorder='big')
             logger.debug('parse egress_timestamp: %d' %  self.egress_timestamp)
-     
+            
     def  __parse_queue_congestion(self):
         if self.ins_map & 0x02:
             self.queue_congestion_id = int.from_bytes(self.data.read(1), byteorder='big')
             self.queue_congestion = int.from_bytes(self.data.read(3), byteorder='big')
+
             logger.debug('parse queue_congestion_id: %d, queue_congestion: %d' % (self.queue_congestion_id, self.queue_congestion))
             
     def  __parse_l2_ports(self):
