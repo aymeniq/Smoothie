@@ -61,7 +61,9 @@ control Int_transit(inout headers hdr, inout metadata meta, inout standard_metad
         action int_set_header_3() {
             hdr.int_q_occupancy.setValid();
             hdr.int_q_occupancy.q_id = 0; // qid not defined in v1model
-            hdr.int_q_occupancy.q_occupancy = (bit<24>)standard_metadata.enq_qdepth;
+            hdr.int_q_occupancy.trend = 1;
+            if(standard_metadata.deq_qdepth < standard_metadata.enq_qdepth) hdr.int_q_occupancy.trend = 0;
+            hdr.int_q_occupancy.q_occupancy = (bit<23>)standard_metadata.deq_qdepth;
         }
         action int_set_header_4() {
             hdr.int_ingress_tstamp.setValid();
@@ -415,7 +417,9 @@ control Int_transit(inout headers hdr, inout metadata meta, inout standard_metad
             tb_int_inst_0003.apply();
             tb_int_inst_0407.apply();
 
-            log_msg("Q depth transit: {}", {standard_metadata.enq_qdepth});
+            log_msg("Q deq_depth transit: {}", {standard_metadata.deq_qdepth});
+
+            log_msg("Q enq_depth transit: {}", {standard_metadata.enq_qdepth});
 
             //update length fields in IP, UDP and INT
             int_update_ip_ac();

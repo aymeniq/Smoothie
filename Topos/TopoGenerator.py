@@ -278,7 +278,7 @@ if __name__ == '__main__':
         print("Usage: python TopoGenerator.py nbr_switches proportion_of_Int flowlet_timeout")
         sys.exit(1)
     
-    topoList1 = genSpineLeaf(sys.argv[1], sys.argv[2], sys.argv[3], file="test.json")
+    topoList1 = genSpineLeaf(int(sys.argv[1]), sys.argv[2], sys.argv[3], file="test.json")
     print(len(topoList1))
     #print(topoList1)
     A = np.array(topoList1)
