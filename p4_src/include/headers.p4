@@ -298,9 +298,8 @@ struct metadata {
     bit<8>               icmp_type;
 
     bit<48> flowlet_last_stamp;
-    bit<48> flowlet_time_diff;
 
-    bit<13> flowlet_register_index;
+    bit<13> register_index;
     //bit<16> flowlet_id;
     bool flow_source;
     @field_list(CLONE_FL_1)
@@ -308,6 +307,7 @@ struct metadata {
 
     bit<8> proportion;
     bit<48> flowlet_timeout;
+    bit<48> feedback_ts;
 }
 
 header int_data_t {

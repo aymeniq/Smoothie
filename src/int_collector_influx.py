@@ -5,6 +5,7 @@ import struct
 import binascii
 import pprint
 import logging
+import hashlib
 from copy import copy, deepcopy
 import io
 #from influxdb import InfluxDBClient
@@ -48,12 +49,68 @@ def parse_params():
 
     return parser.parse_args()
 
+def hash_tuple(flow):
+    # Combine the 6 elements of the flow tuple into a single string
+    flow_string = "".join([str(x) for x in flow])
+    # Hash the string using the md5 algorithm
+    flow_hash = hashlib.md5(flow_string.encode())
+    # Return the hexadecimal representation of the hash
+    return flow_hash.hexdigest()
+
+
+class path_infos(object):
+    def __init__(self, size=10):
+        self.index = 0
+        self.len = 0
+        self.size = size
+        self.weights = [None] * size
+        self.times = [0] * size
+        self.time_elapsed = 0
+        self.last_t = self.first_t = 0
+    
+    def get_len(self):
+        return self.len
+
+    def linreg(self):
+        """
+        return a,b in solution to y = ax + b such that root mean square distance between trend line and original points is minimized
+        """
+        X = range(self.get_len())
+        Y = [x for _, x in sorted(zip(self.times[:len(X)], self.weights[:len(X)]))]
+        # print(Y)
+
+        N = len(X)
+        Sx = Sy = Sxx = Syy = Sxy = 0.0
+        for x, y in zip(X, Y):
+            Sx = Sx + x
+            Sy = Sy + y
+            Sxx = Sxx + x*x
+            Syy = Syy + y*y
+            Sxy = Sxy + x*y
+        det = Sxx * N - Sx * Sx
+        if det == 0: return 0
+        return (Sxy * N - Sy * Sx)/det, (Sxx * Sy - Sx * Sxy)/det
+
+    def add_weight(self, w, t):
+        self.weights[self.index] = w
+        self.times[self.index] = t
+        self.last_t = t
+        if self.len == 0:
+            self.first_t = t
+        elif self.len == self.size:
+            self.first_t = self.times[(self.index+1)%self.size]
+        self.index = (self.index + 1)%self.size
+        self.len = min([self.len+1, self.size])
+
 class NetGraph(object):
     def __init__(self):
         self.G = load_topo('topology.json')
         self.max_bw = 0 #used to normalize link capacity between [0, 1]
-        self.delta = 0.001
-        self.detour = 1
+        self.delta = 0.002
+        self.detour = 0
+        self.flows = {}
+        self.paths = {}
+        self.path_infos = {}
 
         self.hosts = [x for x in self.G.nodes if self.G.isHost(x)]
 
@@ -73,6 +130,21 @@ class NetGraph(object):
 
         #nx.draw(self.G)
         #matplotlib.pyplot.show()
+
+    def store_flow_path(self, flow, path):
+        key = hash_tuple(flow)
+        value = hash_tuple(path)
+        if key in self.flows:
+            self.flows[key][0] = value
+        else:
+            self.flows[key] = [value]
+
+    def get_path_digest(self, flow):
+        key = hash_tuple(flow)
+        if key in self.flows:
+            return self.flows[key][0]
+        else:
+            return ""
             
 
     def update_infos(self, report):
@@ -94,9 +166,7 @@ class NetGraph(object):
             dst_node = self.switches[dst-1]
             current_path.insert(0, dst_node)
             
-            if queue_load > 0:
-                #self.G.nodes[dst_node]["q_load"] = queue_load
-                self.G.edges[src_node, dst_node][dst_node+"weight"] = (queue_load/queue_size) / (self.G.node_to_node_interface_bw(src_node, dst_node) / self.max_bw)
+            self.G.edges[src_node, dst_node][dst_node+"weight"] = (queue_load/queue_size) / (self.G.node_to_node_interface_bw(src_node, dst_node) / self.max_bw)
 
             dst = src
 
@@ -105,17 +175,38 @@ class NetGraph(object):
         current_path.append(dst_host)
         #print(current_path)
 
+        key = hash_tuple(current_path[1:-1])
+        if key not in self.path_infos:
+            self.path_infos[key] = path_infos()
+        self.path_infos[key].add_weight(self.weight_path(current_path), time.time())
+
         if report.update_path and report.ethertype == 0x86dd:
             
             p = self.select_path(src_host, dst_host, self.detour)
+            print("p1 = {}  w={} t={}".format(current_path, self.weight_path(current_path), report.trend))
+            print("p2 = {}  w={}".format(p, self.weight_path(p)))
+
+            print("trend {} max_qdepth {}".format(report.trend, report.max_qdepth))
             if self.weight_path(current_path) < self.weight_path(p)+self.delta:
                 return
 
-            print("p1 = {}  w={}".format(current_path, self.weight_path(current_path)))
-            print("p2 = {}  w={}".format(p, self.weight_path(p)))
+            # print(report.flow_id)
+            
+            # print(self.flows)
 
-            res = self.path_to_ips(p)
-            self.export_path(res, self.G.get_p4switch_id(p[1]), self.G.get_thrift_port(p[1]))
+            
+
+            key = hash_tuple(current_path[1:-1])
+            if key in self.path_infos:
+                l = self.path_infos[key].get_len()
+                print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
+                print(self.path_infos[key].linreg())
+
+            # Avoid exporting several times the same path
+            if(self.get_path_digest(report.flow_id.values()) != hash_tuple(p)):
+                res = self.path_to_ips(p)
+                self.export_path(res, self.G.get_p4switch_id(p[1]), self.G.get_thrift_port(p[1]))
+                self.store_flow_path(report.flow_id.values(), p)
             #print("update_infos : --- %s seconds ---" % (time.time() - start_time))
 
 
@@ -133,10 +224,19 @@ class NetGraph(object):
 
     def select_path(self, src, dst, detour):
         #generator = nx.all_shortest_paths(self.G, source=src, target=dst)
-        spl = nx.shortest_path_length(self.G, source=src, target=dst)
-        generator = nx.all_simple_paths(self.G, source=src, target=dst, cutoff=spl+detour)#generate all paths with a detour of at most "detour" nodes more than the shortest path
-        paths = list(generator)
+        key = hash_tuple([src, dst])
+        if key in self.paths:
+            paths = self.paths[key]
+        else:
+            spl = nx.shortest_path_length(self.G, source=src, target=dst)
+            generator = nx.all_simple_paths(self.G, source=src, target=dst, cutoff=spl+detour)#generate all paths with a detour of at most "detour" nodes more than the shortest path
+            paths = list(generator)
+            self.paths[key] = paths
+        
         len_p = len(paths)
+
+        # print(self.pathes)
+        # print(paths)
 
         if len_p == 0:
             return None
@@ -453,10 +553,16 @@ class IntReport():
         logger.debug("Metadata (%d bytes) is: %s" % (len(self.int_meta), binascii.hexlify(self.int_meta)))
         self.hop_metadata = []
         self.int_meta = io.BytesIO(self.int_meta)
+        self.max_qdepth = 0
+        self.trend = 0
         for i in range(self.hop_count):
             try:
                 hop = HopMetadata(self.int_meta, self.ins_map, self.int_version)
                 self.int_meta = hop.unread_data()
+                # take the trend of most congested queue
+                if self.max_qdepth < hop.queue_occupancy:
+                    self.max_qdepth = hop.queue_occupancy
+                    self.trend = hop.trend
                 self.hop_metadata.append(hop)
             except Exception as e:
                 logger.info("Metadata left (%s position) is: %s" % (self.int_meta.tell(), self.int_meta))

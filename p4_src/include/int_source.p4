@@ -29,7 +29,7 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
     // hope_metadata_len - how INT metadata words are added by a single INT node
     // ins_cnt - how many INT headers must be added by a single INT node
     // ins_mask - instruction_mask defining which information (INT headers types) must added to the packet
-    action configure_source(bit<8> max_hop, bit<5> hop_metadata_len, bit<5> ins_cnt, bit<16> ins_mask, bit<8> proportion) {
+    action configure_source(bit<8> max_hop, bit<5> hop_metadata_len, bit<5> ins_cnt, bit<16> ins_mask) {
         
         hdr.int_shim.setValid();
         hdr.int_shim.int_type = INT_TYPE_HOP_BY_HOP;
@@ -45,8 +45,6 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
         hdr.int_header.hop_metadata_len = hop_metadata_len;
         hdr.int_header.remaining_hop_cnt = max_hop;  //will be decreased immediately by 1 within transit process
         hdr.int_header.instruction_mask = ins_mask;
-
-        meta.proportion = proportion;
 
         if(hdr.ipv4.isValid()){
             hdr.int_shim.dscp = hdr.ipv4.dscp;
@@ -93,8 +91,9 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
     }
 
 
-    action activate_source() {
+    action activate_source(bit<8> proportion) {
         meta.int_metadata.source = 1;
+        meta.proportion = proportion;
     }
     
     // table used to active INT source for a ingress port of the switch
@@ -119,8 +118,8 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
         //check if packet appeard on ingress port with active INT source
         tb_activate_source.apply();
 
-        bit<8> res = 0;
-        random<bit<8>>(res, 1, meta.proportion+1);
+        bit<8> res;
+        random<bit<8>>(res, (bit<8>) 1, meta.proportion);
         
         if (meta.int_metadata.source == 1 && hdr.ipv4.isValid()) {
             if(res != 1){
@@ -132,7 +131,7 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
         }
 
         if (meta.int_metadata.source == 1 && hdr.ipv6.isValid()) {
-            log_msg("random res: {}", {res});
+            log_msg("random res: {} {}", {res, meta.proportion});
             if(res != 1){
                 meta.int_metadata.source = 0;
                 return;

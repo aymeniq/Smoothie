@@ -1,5 +1,5 @@
 {
-  "p4_src": "int_v1.0/int.p4",
+  "p4_src": "p4_src/int.p4",
   "cli": true,
   "pcap_dump": true,
   "enable_log": true,
