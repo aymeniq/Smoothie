@@ -85,3 +85,5 @@ tmux send "nload SP6-eth3" ENTER
 tmux select-pane -t 15
 tmux send "nload SP6-eth4" ENTER
 
+tmux attach-session -t nload
+

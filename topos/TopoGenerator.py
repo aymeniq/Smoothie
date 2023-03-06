@@ -43,10 +43,10 @@ class File_generator():
         if not is_spine:
             for x in range(1, nbr_h+1):
                 output+= "table_add tb_activate_flow_dest set_timeout {} => {}\n".format(x, timeout)
-                output+= "table_add tb_activate_source activate_source {} =>\n".format(x)
+                output+= "table_add tb_activate_source activate_source {} => {}\n".format(x, proportion)
                 output+= "table_add host_port NoAction {} =>\n".format(x)
 
-            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 {} 0\n".format(proportion)
+            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 0\n"
 
             output += "mirroring_add 1 {}\n".format(l+1)
             for x in range(1, nbr_h+1):
@@ -115,7 +115,7 @@ class File_generator():
             f.close()
 
     def write_to_file(self):
-        config = "\"p4_src\": \"int_v1.0/int.p4\",\n\"cli\": true,\n\"pcap_dump\": true,\n\"enable_log\": true,"
+        config = "\"p4_src\": \"p4_src/int.p4\",\n\"cli\": true,\n\"pcap_dump\": true,\n\"enable_log\": true,"
         assignment_strategy = "\"assignment_strategy\": \"mixed\""
         output=""
 
@@ -136,6 +136,7 @@ class File_generator():
         output += "{" + config + "\n"
         output += "\"topology\": {\n"
         output += assignment_strategy + ",\n"
+        output += "\"default\": {\"bw\": 2},\n"
         output += "\"links\": ["
 
         for x in self.links:
@@ -143,7 +144,7 @@ class File_generator():
                     x.append(id_to_mac(int(x[1][2:]), int(x[0][2:]), False))
                     x.append(id_to_mac(int(x[1][2:]), int(x[0][2:]), True))
 
-            output += "[\"" + x[0] + "\", " + "\"" + x[1] + "\"" + ",{\"bw\": 1, \"addr1\": \""+ x[2] +"\", \"addr2\": \"" + x[3] + "\"}],"
+            output += "[\"" + x[0] + "\", " + "\"" + x[1] + "\"" + ",{\"bw\": 3, \"addr1\": \""+ x[2] +"\", \"addr2\": \"" + x[3] + "\"}],"
 
         #print(links)
 
@@ -159,7 +160,7 @@ class File_generator():
 
         output += "\"switches\": {"
         for x in self.switches:
-            output += "\"" + x + "\": {{\"cli_input\": \"Topos/{}.txt\"}},".format(x)
+            output += "\"" + x + "\": {{\"cli_input\": \"topos/{}.txt\"}},".format(x)
 
         output = output[:-1] + '} \n'
 
