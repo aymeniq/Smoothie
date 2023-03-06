@@ -33,6 +33,7 @@ from src.helper import *
 from src.networking import create_int_collection_network, start_int_collector
 
 import inspect
+import pickle
 
 #print(inspect.getfile(ThriftClient))
 
@@ -1119,18 +1120,37 @@ class NetworkAPI(Topo):
         """
         self.auto_gw_arp = False
 
-    def cmd_hosts(self, hosts, cmd, wait=True):
-        l = []
+    def cmd_hosts(self, hosts, cmd, args=None, wait=True):
         #self.net.hosts
-        for h in hosts:
-            h = self.net.get(h)
-            x = h.sendCmd(cmd)
-            l.append(x)
+        if not args:
+            for h in hosts:
+                h = self.net.get(h)
+                h.sendCmd(cmd)
+        else:
+            for h, arg in zip(hosts, args):
+                h = self.net.get(h)
+                h.sendCmd(cmd + arg)
 
         if wait:
-            for h in self.net.hosts:
+            for h in hosts:
+                h = self.net.get(h)
                 h.waitOutput()
-        
+
+    def benchmark(self):
+        with open("../empirical-traffic-gen/config/clients", "rb") as fp:
+            clients = pickle.load(fp)
+        with open("../empirical-traffic-gen/config/servers", "rb") as fp:
+            servers = pickle.load(fp)
+
+        self.cmd_hosts(servers, "cd ../empirical-traffic-gen; ./bin/server -p 5050", wait=False)
+        args = [' -l '+ h for h in clients]
+        self.cmd_hosts(clients, "cd ../empirical-traffic-gen; ./bin/client -c config/config -s 123", args, True)
+
+        for h in servers:
+            h = self.net.get(h)
+            h.sendInt()
+            time.sleep(1)#wait for servers to be killed
+            h.monitor()
 
     def startNetwork(self):
         """Starts and configures the network."""
@@ -1182,12 +1202,14 @@ class NetworkAPI(Topo):
         self.distribute_tasks()
         output('All tasks distributed correctly!\n')
 
-        #self.cmd_hosts(['H1','H2'], "sleep 2")
+        output('Starting benchmark\n')
+        self.benchmark()
+        self.stopNetwork()
 
-        if self.cli_enabled:
-            self.start_net_cli()
-            # Stop right after the CLI is exited
-            self.stopNetwork()
+        # if self.cli_enabled:
+        #     self.start_net_cli()
+        #     # Stop right after the CLI is exited
+        #     self.stopNetwork()
 
     def stop_exec_scripts(self):
         """Stops all exec scripts."""
