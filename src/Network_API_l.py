@@ -1119,14 +1119,18 @@ class NetworkAPI(Topo):
         """
         self.auto_gw_arp = False
 
-    def cmd_all_hosts(self, cmd):
+    def cmd_hosts(self, hosts, cmd, wait=True):
         l = []
-        for h in self.net.hosts:
-            x=h.sendCmd(cmd)
+        #self.net.hosts
+        for h in hosts:
+            h = self.net.get(h)
+            x = h.sendCmd(cmd)
             l.append(x)
 
-        for h in self.net.hosts:
-            h.waitOutput()
+        if wait:
+            for h in self.net.hosts:
+                h.waitOutput()
+        
 
     def startNetwork(self):
         """Starts and configures the network."""
@@ -1177,6 +1181,8 @@ class NetworkAPI(Topo):
         info('Distributing tasks...\n')
         self.distribute_tasks()
         output('All tasks distributed correctly!\n')
+
+        #self.cmd_hosts(['H1','H2'], "sleep 2")
 
         if self.cli_enabled:
             self.start_net_cli()

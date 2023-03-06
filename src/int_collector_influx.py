@@ -106,7 +106,7 @@ class NetGraph(object):
     def __init__(self):
         self.G = load_topo('topology.json')
         self.max_bw = 0 #used to normalize link capacity between [0, 1]
-        self.delta = 0.002
+        self.delta = 0.001
         self.detour = 0
         self.flows = {}
         self.paths = {}
@@ -215,7 +215,10 @@ class NetGraph(object):
         w = 0
         for n in p[1:]:
             #print("nodes: {} {}".format(src, n))
-            w += self.G.edges[src, n][n+"weight"]
+            try:
+                w += self.G.edges[src, n][n+"weight"]
+            except Exception as e:
+                pass
             src = n
         return w
 
