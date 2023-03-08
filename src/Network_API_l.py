@@ -1130,6 +1130,7 @@ class NetworkAPI(Topo):
             for h, arg in zip(hosts, args):
                 h = self.net.get(h)
                 h.sendCmd(cmd + arg)
+                output(cmd+arg)
 
         if wait:
             for h in hosts:
@@ -1143,8 +1144,10 @@ class NetworkAPI(Topo):
             servers = pickle.load(fp)
 
         self.cmd_hosts(servers, "cd ../empirical-traffic-gen; ./bin/server -p 5050", wait=False)
+        time.sleep(2)
         args = [' -l '+ h for h in clients]
         self.cmd_hosts(clients, "cd ../empirical-traffic-gen; ./bin/client -c config/config -s 123", args, True)
+        #self.cmd_hosts(clients, "sleep 10", wait=True)
 
         for h in servers:
             h = self.net.get(h)
