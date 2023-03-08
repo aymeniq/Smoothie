@@ -1130,7 +1130,6 @@ class NetworkAPI(Topo):
             for h, arg in zip(hosts, args):
                 h = self.net.get(h)
                 h.sendCmd(cmd + arg)
-                output(cmd+arg)
 
         if wait:
             for h in hosts:
