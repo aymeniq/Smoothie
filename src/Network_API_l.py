@@ -35,6 +35,10 @@ from src.networking import create_int_collection_network, start_int_collector
 import inspect
 import pickle
 
+import sys
+sys.path.insert(1, '../empirical-traffic-gen/')
+import traffic_config_gen
+
 #print(inspect.getfile(ThriftClient))
 
 
@@ -1137,6 +1141,7 @@ class NetworkAPI(Topo):
                 h.waitOutput()
 
     def benchmark(self):
+        traffic_config_gen.gen_config("topology.json", "DCTCP_CDF", "0", "1")
         with open("../empirical-traffic-gen/config/clients", "rb") as fp:
             clients = pickle.load(fp)
         with open("../empirical-traffic-gen/config/servers", "rb") as fp:
