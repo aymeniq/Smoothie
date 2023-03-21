@@ -255,7 +255,7 @@ def genSpineLeaf(maxSNum, proportion=1, timeout=200000, file=None):  #SNum must 
 
         print(switches)
 
-        f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 2)
+        f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 4)
         f.write_to_file()
         f.generate_commands(proportion, timeout)
 
