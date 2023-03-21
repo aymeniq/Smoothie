@@ -1129,11 +1129,11 @@ class NetworkAPI(Topo):
         if not args:
             for h in hosts:
                 h = self.net.get(h)
-                h.sendCmd(cmd)
+                h.write(cmd + " >> cool2.txt \n")
         else:
             for h, arg in zip(hosts, args):
                 h = self.net.get(h)
-                h.sendCmd(cmd + arg)
+                h.sendCmd(cmd + arg + " >> cool.txt")
 
         if wait:
             for h in hosts:
@@ -1148,15 +1148,19 @@ class NetworkAPI(Topo):
             servers = pickle.load(fp)
 
         self.cmd_hosts(servers, "cd ../empirical-traffic-gen; ./bin/server -p 5050", wait=False)
-        time.sleep(2)
+        time.sleep(2)#wait for NDP to reach all hosts
         args = [' -l '+ h for h in clients]
         self.cmd_hosts(clients, "cd ../empirical-traffic-gen; ./bin/client -c config/config -s 123", args, True)
         #self.cmd_hosts(clients, "sleep 10", wait=True)
 
         for h in servers:
             h = self.net.get(h)
+            #h.cmd("kill $!")
             h.sendInt()
-            time.sleep(1)#wait for servers to be killed
+        
+        time.sleep(2)#wait for servers to be killed
+        for h in servers:
+            h = self.net.get(h)
             h.monitor()
 
     def startNetwork(self):
@@ -1181,6 +1185,10 @@ class NetworkAPI(Topo):
 
         info('Starting network...\n')
         self.net.start()
+        for h in self.net.hosts:
+            h.setCPUFrac(0.5/len(self.net.hosts))
+        output(self.net.hosts)
+        output(len(self.net.hosts))
         output('Network started!\n')
 
         info('Starting schedulers...\n')
