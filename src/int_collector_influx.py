@@ -183,10 +183,10 @@ class NetGraph(object):
         if report.update_path and report.ethertype == 0x86dd:
             
             p = self.select_path(src_host, dst_host, self.detour)
-            print("p1 = {}  w={} t={}".format(current_path, self.weight_path(current_path), report.trend))
-            print("p2 = {}  w={}".format(p, self.weight_path(p)))
+            # print("p1 = {}  w={} t={}".format(current_path, self.weight_path(current_path), report.trend))
+            # print("p2 = {}  w={}".format(p, self.weight_path(p)))
 
-            print("trend {} max_qdepth {}".format(report.trend, report.max_qdepth))
+            # print("trend {} max_qdepth {}".format(report.trend, report.max_qdepth))
             if self.weight_path(current_path) < self.weight_path(p)+self.delta:
                 return
 
@@ -196,11 +196,11 @@ class NetGraph(object):
 
             
 
-            key = hash_tuple(current_path[1:-1])
-            if key in self.path_infos:
-                l = self.path_infos[key].get_len()
-                print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
-                print(self.path_infos[key].linreg())
+            # key = hash_tuple(current_path[1:-1])
+            # if key in self.path_infos:
+            #     l = self.path_infos[key].get_len()
+            #     print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
+            #     print(self.path_infos[key].linreg())
 
             # Avoid exporting several times the same path
             if(self.get_path_digest(report.flow_id.values()) != hash_tuple(p)):
@@ -761,9 +761,9 @@ def start_udp_server(args):
         logger.debug(binascii.hexlify(message))
         try:
             report = unpack_int_report(message)
-            g.update_infos(report)
             if report:
-                collector.add_report(report)
+                g.update_infos(report)
+                # collector.add_report(report)
         except Exception as e:
             logger.exception("Exception during handling the INT report")
 

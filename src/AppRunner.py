@@ -212,7 +212,7 @@ class AppRunner(NetworkAPI):
             raise FileNotFoundError("{} is not in the directory!".format(os.path.realpath(conf_file)))
         self.conf = load_conf(conf_file)
 
-        self.cli_enabled = cli_enabled
+        self.cli_enabled = self.conf.get("cli", False)
         self.pcap_dir = pcap_dir
         self.log_dir = log_dir
 

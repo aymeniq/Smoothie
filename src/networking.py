@@ -66,12 +66,12 @@ def create_int_collection_network(switches): #, influxdb
 def start_int_collector(influxdb):
     print("\nRunning INT collector")
     
-    # forward influx TCP connections to PSNC influx instance (not accessible directly from ns_int namespace where INT collector runs) 
-    print("socat TCP-LISTEN:8086,fork TCP:%s" % influxdb)
-    subprocess.Popen(
-        ['/usr/bin/socat','TCP-LISTEN:8086,fork','TCP:%s'%influxdb],
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
-    )
+    # # forward influx TCP connections to PSNC influx instance (not accessible directly from ns_int namespace where INT collector runs) 
+    # print("socat TCP-LISTEN:8086,fork TCP:%s" % influxdb)
+    # subprocess.Popen(
+    #     ['/usr/bin/socat','TCP-LISTEN:8086,fork','TCP:%s'%influxdb],
+    #     stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    # )
     
     #print("HELLO !!! {}".format(conf))
 

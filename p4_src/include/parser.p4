@@ -278,7 +278,7 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
         );
         
         update_checksum_with_payload(
-            hdr.udp.isValid(), 
+            hdr.ipv4.isValid() && hdr.udp.isValid(), 
             {  hdr.ipv4.srcAddr, 
                 hdr.ipv4.dstAddr, 
                 8w0, 
@@ -293,7 +293,7 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
         ); 
 
         update_checksum_with_payload(
-            hdr.udp.isValid() && hdr.int_header.isValid() , 
+            hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.int_header.isValid() , 
             {  hdr.ipv4.srcAddr, 
                 hdr.ipv4.dstAddr, 
                 8w0, 
@@ -316,6 +316,20 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
             hdr.udp.csum, 
             HashAlgorithm.csum16
         );
+
+        update_checksum_with_payload(
+            hdr.udp.isValid() && hdr.ipv6.isValid(),
+            {   hdr.ipv6.src_addr,
+                hdr.ipv6.dst_addr,
+                hdr.ipv6.payload_len,
+                8w0,
+                hdr.ipv6.next_hdr, 
+                hdr.udp.len, 
+                hdr.udp.srcPort, 
+                hdr.udp.dstPort,
+                hdr.udp.len 
+            },
+            hdr.tcp.csum, HashAlgorithm.csum16);
 
 
         update_checksum_with_payload(
