@@ -135,7 +135,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
 
     // --- ndp_reply_table -----------------------------------------------------
 
-    action ndp_ns_to_na(mac_addr_t target_mac) {
+   /* action ndp_ns_to_na(mac_addr_t target_mac) {
         hdr.ethernet.srcAddr = target_mac;
         hdr.ethernet.dstAddr = IPV6_MCAST_01;
         ipv6_addr_t host_ipv6_tmp = hdr.ipv6.src_addr;
@@ -159,18 +159,18 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         }
         @name("ndp_reply_table_counter")
         counters = direct_counter(CounterType.packets_and_bytes);
-    }
+    }*/
 
     // --- my_station_table ---------------------------------------------------
 
-    table my_station_table {
+/*    table my_station_table {
         key = {
             hdr.ethernet.dstAddr: exact;
         }
         actions = { NoAction; }
         @name("my_station_table_counter")
         counters = direct_counter(CounterType.packets_and_bytes);
-    }
+    }*/
 
     // --- routing_v6_table ----------------------------------------------------
 
@@ -231,7 +231,7 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
     // controller is expected to update the L2 and L3 tables with the
     // correspionding brinding and routing entries.
 
-    action send_to_cpu() {
+/*    action send_to_cpu() {
         ig_intr_md.egress_spec = CPU_PORT;
     }
 
@@ -242,9 +242,9 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         // preserve for the cloned packet replica.
         return;
         //clone3(CloneType.I2E, CPU_CLONE_SESSION_ID, { ig_intr_md.ingress_port });
-    }
+    }*/
 
-    table acl_table {
+/*    table acl_table {
         key = {
             ig_intr_md.ingress_port:        ternary;
             hdr.ethernet.dstAddr:           ternary;
@@ -262,12 +262,12 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
         }
         @name("acl_table_counter")
         counters = direct_counter(CounterType.packets_and_bytes);
-    }
+    }*/
 
 	apply {
 
 
-        if (hdr.cpu_out.isValid()) {
+/*        if (hdr.cpu_out.isValid()) {
             ig_intr_md.egress_spec = hdr.cpu_out.egress_port;
             hdr.cpu_out.setInvalid();
             exit;
@@ -279,48 +279,47 @@ control ingress(inout headers hdr, inout metadata meta, inout standard_metadata_
             if (ndp_reply_table.apply().hit) {
                 do_l3_l2 = false;
             }
+        }*/
+
+        //if (do_l3_l2) {
+
+        if (hdr.ipv4.isValid()) ipv4_lpm.apply();
+
+        //if (hdr.ipv6.isValid() && my_station_table.apply().hit) {
+
+        if (hdr.udp.isValid() || hdr.tcp.isValid()) {
+            // in case of INT source port add main INT headers
+            Int_source.apply(hdr, meta, ig_intr_md);
         }
 
-        if (do_l3_l2) {
-
-            if (hdr.ipv4.isValid()) ipv4_lpm.apply();
-
-            //if (hdr.ipv6.isValid() && my_station_table.apply().hit) {
-
-            if (hdr.udp.isValid() || hdr.tcp.isValid()) {
-                // in case of INT source port add main INT headers
-                Int_source.apply(hdr, meta, ig_intr_md);
-            }
-
-            if (hdr.ipv6.isValid()){
-                SRv6.apply(hdr, meta, ig_intr_md);
-                switch (ipv6_lpm.apply().action_run){
-                    ecmp_group: {
-                        ecmp_group_to_nhop.apply();
-                    }
+        if (hdr.ipv6.isValid()){
+            SRv6.apply(hdr, meta, ig_intr_md);
+            switch (ipv6_lpm.apply().action_run){
+                ecmp_group: {
+                    ecmp_group_to_nhop.apply();
                 }
-                if(hdr.ipv6.hop_limit == 0) { drop(); }
             }
-
-            // L2 bridging logic. Apply the exact table first...
-            if (!l2_exact_table.apply().hit) {
-                // ...if an entry is NOT found, apply the ternary one in case
-                // this is a multicast/broadcast NDP NS packet.
-                l2_ternary_table.apply();
-                if(meta.is_multicast && hdr.ipv6.hop_limit < 252){mark_to_drop(ig_intr_md);}//drop multicast packet
-            }
-
-            if (hdr.udp.isValid() || hdr.tcp.isValid()){
-                // in case of sink node make packet clone I2E in order to create INT report
-                // which will be send to INT reporting port
-                Int_sink_config.apply(hdr, meta, ig_intr_md);
-            }
-
-            Flowlet.apply(hdr, meta, ig_intr_md);
+            if(hdr.ipv6.hop_limit == 0) { drop(); }
         }
+
+        // L2 bridging logic. Apply the exact table first...
+        if (!l2_exact_table.apply().hit) {
+            // ...if an entry is NOT found, apply the ternary one in case
+            // this is a multicast/broadcast NDP NS packet.
+            l2_ternary_table.apply();
+            if(meta.is_multicast && hdr.ipv6.hop_limit < 252){mark_to_drop(ig_intr_md);}//drop multicast packet
+        }
+
+        if (hdr.udp.isValid() || hdr.tcp.isValid()){
+            // in case of sink node make packet clone I2E in order to create INT report
+            // which will be send to INT reporting port
+            Int_sink_config.apply(hdr, meta, ig_intr_md);
+        }
+
+        Flowlet.apply(hdr, meta, ig_intr_md);
 
         // Lastly, apply the ACL table.
-        acl_table.apply();
+        //acl_table.apply();
 	}
 }
 
@@ -339,14 +338,14 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
 
 	apply {
 
-        log_msg("Q depth: {}", {eg_intr_md.enq_qdepth});
+        //log_msg("Q depth: {}", {eg_intr_md.enq_qdepth});
 
 
-        if (eg_intr_md.egress_port == CPU_PORT) {
+        /*if (eg_intr_md.egress_port == CPU_PORT) {
             hdr.cpu_in.setValid();
             hdr.cpu_in.ingress_port = eg_intr_md.ingress_port;
             exit;
-        }
+        }*/
 
         if (host_port.apply().hit && hdr.ipv6.isValid()) hdr.ipv6.hop_limit = 255;
 
@@ -364,8 +363,8 @@ control egress(inout headers hdr, inout metadata meta, inout standard_metadata_t
 		// when frame duplicate on the INT report port then reformat frame into INT report frame
 		Int_sink.apply(hdr, meta, eg_intr_md);
 
-        if(hdr.tcp.isValid() && hdr.ipv4.isValid()) meta.tcpLen = hdr.ipv4.totalLen - (bit<16>)(hdr.ipv4.ihl)*4;
-        if(hdr.tcp.isValid() && hdr.ipv6.isValid()) meta.tcpLen = hdr.ipv6.payload_len;
+        /*if(hdr.tcp.isValid() && hdr.ipv4.isValid()) meta.tcpLen = hdr.ipv4.totalLen - (bit<16>)(hdr.ipv4.ihl)*4;
+        if(hdr.tcp.isValid() && hdr.ipv6.isValid()) meta.tcpLen = hdr.ipv6.payload_len;*/
 	}
 }
 

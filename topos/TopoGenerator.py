@@ -30,7 +30,7 @@ class File_generator():
         return self.links(src+dst)
 
     def generate_command(self, s, idx, nbr_h, proportion, timeout):
-        output = "set_queue_depth 64\n"
+        output = "set_queue_depth 64\nset_queue_rate 100\n"
 
         l = len(self.G.edges(idx))
         if s.startswith("SP"):
@@ -46,7 +46,7 @@ class File_generator():
                 output+= "table_add tb_activate_source activate_source {} => {}\n".format(x, proportion)
                 output+= "table_add host_port NoAction {} =>\n".format(x)
 
-            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 0\n"
+            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 2 2 0x9000 0\n"
 
             output += "mirroring_add 1 {}\n".format(l+1)
             for x in range(1, nbr_h+1):

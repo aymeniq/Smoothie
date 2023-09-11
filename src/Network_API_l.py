@@ -34,8 +34,11 @@ from src.networking import create_int_collection_network, start_int_collector
 
 import inspect
 import pickle
+import random
 
 import sys
+
+from statistics import mean
 # sys.path.insert(1, '../empirical-traffic-gen/')
 # import traffic_config_gen
 
@@ -290,6 +293,12 @@ class NetworkAPI(Topo):
                 print("sysctl -w net.ipv6.conf.{0}.disable_ipv6=0".format(intf1.name))
                 s1.cmd("sysctl -w net.ipv6.conf.{0}.disable_ipv6=0".format(intf1.name))
 
+            # for intf1 in s1.intfs.values():#change MTU to be able to add SRV6 extension headers
+            #     if intf1.name == 'lo':
+            #         continue
+            #     print("ip link set dev {0} mtu 1650".format(intf1.name))
+            #     s1.cmd("ip link set dev {0} mtu 1650".format(intf1.name))
+
     def program_hosts(self):
         """Adds static and default routes ARP entries to each mininet host.
         Multihomed hosts are allowed. It also enables DHCP if requested.
@@ -387,6 +396,12 @@ class NetworkAPI(Topo):
                 h1.cmd("sysctl -w net.ipv6.conf.{0}.disable_ipv6=0".format(intf1.name))
                 print("ip -6 addr add {1}/64 dev {0}".format(intf1.name, converttov6(intf1.ip)))
                 h1.cmd("ip -6 addr add {1}/64 dev {0}".format(intf1.name, converttov6(intf1.ip)))
+
+                print("ethtool -K {} rx off tx off".format(intf1.name))
+                h1.cmd("ethtool -K {} rx off tx off".format(intf1.name))
+                
+                print("ip link set dev {0} mtu 1300".format(intf1.name))#1440
+                h1.cmd("ip link set dev {0} mtu 1300".format(intf1.name))
                 #h1.cmd("ifconfig {0} inet6 add {1}/64".format(intf1.name, converttov6(intf1.ip)))
 
 
@@ -1131,11 +1146,11 @@ class NetworkAPI(Topo):
             for h in hosts:
                 h = self.net.get(h)
                 h.write(cmd + " >> cool2.txt \n")
-                # time.sleep(0.1)
         else:
             for h in hosts:
                 h = self.net.get(h)
                 h.sendCmd(cmd + " -s "+ str(i) + " -l " + h.name + " &> log/"+h.name+".log")
+                time.sleep(random.random())
                 i+=1
 
         if wait:
@@ -1165,6 +1180,40 @@ class NetworkAPI(Topo):
             h = self.net.get(h)
             h.monitor()
 
+
+    def stress_test(self, duration, bw, port=5050):
+        iperfArgs = 'iperf -p {} -u'.format(port) #-y C
+        n = len(self.net.hosts)//2
+        clients = []
+        servers = [] 
+        for i, h in enumerate(self.net.hosts):
+            if(i%2): 
+                clients.append(h)
+            else:
+                servers.append(h)
+
+        clients.reverse()#the list is reversed so that client and server do not end up on the same leaf
+
+        servers_IP = []
+
+        # info(str(clients)+ "\n")
+        # info(str(servers)+ "\n")
+
+        for h in servers:
+            servers_IP.append(h.IP())
+            h.sendCmd(iperfArgs + ' -s >> servers.txt')
+
+        for i, h in enumerate(clients):
+            h.sendCmd(iperfArgs + ' -t {} -c '.format(duration) + servers_IP[i] + ' -b {} >> clients.txt'.format(bw))
+
+
+        time.sleep(duration*2)
+
+        for h in self.net.hosts:
+            # h.monitor()
+            h.sendInt()
+            
+
     def startNetwork(self):
         """Starts and configures the network."""
         debug('Cleanup old files and processes...\n')
@@ -1180,9 +1229,11 @@ class NetworkAPI(Topo):
         self.printPortMapping()
 
         info('Creating network...\n')
+
         self.net = self.module('net', topo=self, controller=None)
-        # for h in self.net.hosts:
-        #     h.setCPUFrac(0.5/len(self.net.hosts))
+        for h in self.net.hosts:
+            h.setCPUFrac(0.8/len(self.net.hosts))
+            
         output('Network created!\n')
 
         create_int_collection_network(self.net.p4switches)
@@ -1224,7 +1275,12 @@ class NetworkAPI(Topo):
             # Stop right after the CLI is exited
             self.stopNetwork()
         else:
-            output('Starting benchmark\n')
+            output('Starting benchmark...\n')
+            # p = 0.5/len(self.net.hosts)
+            # cpu_percentage = self.net.runCpuLimitTest(cpu=p)
+            # output("CPU percentage requested: "+ str(p*100) + ", mean CPU achieved :" + str(mean(cpu_percentage)) + "\n")
+
+            # self.stress_test(30, 20)
             self.benchmark()
             self.stopNetwork()
 

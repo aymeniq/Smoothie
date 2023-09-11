@@ -19,7 +19,7 @@ from p4utils.utils.sswitch_thrift_API import SimpleSwitchThriftAPI
 from p4utils.utils.thrift_API import UIn_Error
 from p4utils.utils.helper import load_topo
 
-queue_size = 64
+queue_size = 256
 log_format = "[%(asctime)s] [%(levelname)s] - %(message)s"
 logging.basicConfig(level=logging.ERROR, format=log_format, filename="log/int_collector.log")
 logger = logging.getLogger('int_collector')
@@ -154,6 +154,8 @@ class NetGraph(object):
         current_path = []
         src_host = self.G.get_host_name(ipv6_to_v4(report.flow_id["srcip"]))
         dst_host = self.G.get_host_name(ipv6_to_v4(report.flow_id["dstip"]))
+        src_node = None
+        dst_node = None
         for i, hop in enumerate(report.hop_metadata):
             if i == 0:
                 dst = hop.switch_id
@@ -173,7 +175,6 @@ class NetGraph(object):
         current_path.insert(0, src_node)
         current_path.insert(0, src_host)
         current_path.append(dst_host)
-        #print(current_path)
 
         key = hash_tuple(current_path[1:-1])
         if key not in self.path_infos:
@@ -545,9 +546,10 @@ class IntReport():
             raise Exception("Unsupported INT version %s - skipping report" % self.int_version)
 
         self.ins_map = int.from_bytes(self.int_hdr[4:6], byteorder='big')
-        first_slice = (self.ins_map & 0b0000111100000000) << 4
-        second_slice = (self.ins_map & 0b1111000000000000) >> 4
-        self.ins_map = (first_slice + second_slice) >> 8
+        # first_slice = (self.ins_map & 0b0000111100000000) << 4
+        # second_slice = (self.ins_map & 0b1111000000000000) >> 4
+        # self.ins_map = (first_slice + second_slice) >> 8
+        self.ins_map = self.ins_map >> 8
         
         logger.debug(hex(self.ins_map))
 

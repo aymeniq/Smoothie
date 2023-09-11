@@ -277,7 +277,7 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
             HashAlgorithm.csum16
         );
         
-        update_checksum_with_payload(
+        /*update_checksum_with_payload(
             hdr.ipv4.isValid() && hdr.udp.isValid(), 
             {  hdr.ipv4.srcAddr, 
                 hdr.ipv4.dstAddr, 
@@ -349,9 +349,9 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
                 hdr.tcp.winSize,
                 hdr.tcp.urgPoint
             },
-            hdr.tcp.csum, HashAlgorithm.csum16);
+            hdr.tcp.csum, HashAlgorithm.csum16);*/
 
-        update_checksum_with_payload(
+/*        update_checksum_with_payload(
             hdr.tcp.isValid() && hdr.ipv6.isValid(),
             {   hdr.ipv6.src_addr,
                 hdr.ipv6.dst_addr,
@@ -398,7 +398,7 @@ control computeChecksum(inout headers hdr, inout metadata meta) {
                 hdr.int_egress_port_tx_util,
                 hdr.int_hop_latency
             },
-            hdr.tcp.csum, HashAlgorithm.csum16);
+            hdr.tcp.csum, HashAlgorithm.csum16);*/
     }
 }
 
