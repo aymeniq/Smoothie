@@ -30,7 +30,7 @@ class File_generator():
         return self.links(src+dst)
 
     def generate_command(self, s, idx, nbr_h, proportion, timeout):
-        output = "set_queue_depth 64\nset_queue_rate 100\n"
+        output = "set_queue_depth 64\n"
 
         l = len(self.G.edges(idx))
         if s.startswith("SP"):
@@ -46,7 +46,7 @@ class File_generator():
                 output+= "table_add tb_activate_source activate_source {} => {}\n".format(x, proportion)
                 output+= "table_add host_port NoAction {} =>\n".format(x)
 
-            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 2 2 0x9000 0\n"
+            output += "table_add tb_intv6_source configure_source 2002::a00:101&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 2002::a00:202&&&0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000 0x11FF&&&0x0000 0x22FF&&&0x0000 => 4 10 8 0xFF00 0\n"
 
             output += "mirroring_add 1 {}\n".format(l+1)
             for x in range(1, nbr_h+1):
@@ -114,7 +114,7 @@ class File_generator():
             f.write(res)
             f.close()
 
-    def write_to_file(self, default_bw):
+    def write_to_file(self):
         config = "\"p4_src\": \"p4_src/int.p4\",\n\"cli\": true,\n\"pcap_dump\": true,\n\"enable_log\": true,"
         assignment_strategy = "\"assignment_strategy\": \"mixed\""
         output=""
@@ -136,7 +136,7 @@ class File_generator():
         output += "{" + config + "\n"
         output += "\"topology\": {\n"
         output += assignment_strategy + ",\n"
-        output += "\"default\": {\"bw\": "+default_bw+"},\n"
+        output += "\"default\": {\"bw\": 2},\n"
         output += "\"links\": ["
 
         for x in self.links:
@@ -144,7 +144,7 @@ class File_generator():
                     x.append(id_to_mac(int(x[1][2:]), int(x[0][2:]), False))
                     x.append(id_to_mac(int(x[1][2:]), int(x[0][2:]), True))
 
-            output += "[\"" + x[0] + "\", " + "\"" + x[1] + "\"" + ",{\"addr1\": \""+ x[2] +"\", \"addr2\": \"" + x[3] + "\"}],"
+            output += "[\"" + x[0] + "\", " + "\"" + x[1] + "\"" + ",{\"bw\": 3, \"addr1\": \""+ x[2] +"\", \"addr2\": \"" + x[3] + "\"}],"
 
         #print(links)
 
@@ -225,7 +225,7 @@ def genFatTree(maxSNum, file=None):  #SNum must be 10,15,20,25,30...
 
     return topoList
 
-def genSpineLeaf(maxSNum, proportion=1, timeout=200000, default_bw=1, file=None):  #SNum must be 3,6,9,12,15...
+def genSpineLeaf(maxSNum, proportion=1, timeout=200000, file=None):  #SNum must be 3,6,9,12,15...
     sys.setrecursionlimit(1000000)
     swSum = 3
     links = []
@@ -255,8 +255,8 @@ def genSpineLeaf(maxSNum, proportion=1, timeout=200000, default_bw=1, file=None)
 
         print(switches)
 
-        f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 2)
-        f.write_to_file(default_bw)
+        f = File_generator(file, nx.from_numpy_matrix(np.array(topoList)), switches, links, L1, 4)
+        f.write_to_file()
         f.generate_commands(proportion, timeout)
 
     #print(switches)
@@ -275,11 +275,11 @@ def calOddNum(topoMatrix, sNum):
     return count
 
 if __name__ == '__main__':
-    if len(sys.argv) < 5:
-        print("Usage: python TopoGenerator.py nbr_switches proportion_of_Int flowlet_timeout defaulf_bw")
+    if len(sys.argv) < 4:
+        print("Usage: python TopoGenerator.py nbr_switches proportion_of_Int flowlet_timeout")
         sys.exit(1)
     
-    topoList1 = genSpineLeaf(int(sys.argv[1]), sys.argv[2], sys.argv[3], sys.argv[4], file="test.json")
+    topoList1 = genSpineLeaf(int(sys.argv[1]), sys.argv[2], sys.argv[3], file="test.json")
     print(len(topoList1))
     #print(topoList1)
     A = np.array(topoList1)

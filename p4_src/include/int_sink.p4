@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright 2020-2021 PSNC, FBK
  *
  * Author: Damian Parniewicz, Damu Ding
@@ -26,9 +26,9 @@ control Int_sink_config(inout headers hdr, inout metadata meta, inout standard_m
     action configure_sink(bit<16> sink_reporting_port) {
         meta.int_metadata.remove_int = 1;   // indicate that INT headers must be removed in egress
         meta.int_metadata.sink_reporting_port = (bit<16>)sink_reporting_port;
-        log_msg("packet ready to be cloned");
-        //clone_preserving_field_list(CloneType.I2E, INT_REPORT_MIRROR_SESSION_ID, CLONE_FL_1);
-        clone3<metadata>(CloneType.I2E, INT_REPORT_MIRROR_SESSION_ID, meta);
+        //log_msg("packet ready to be cloned");
+        clone_preserving_field_list(CloneType.I2E, INT_REPORT_MIRROR_SESSION_ID, CLONE_FL_1);
+        //clone3<metadata>(CloneType.I2E, INT_REPORT_MIRROR_SESSION_ID, meta);
     }
 
     //table used to activate INT sink for particular egress port of the switch

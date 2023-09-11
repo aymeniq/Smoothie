@@ -57,6 +57,9 @@ def create_int_collection_network(switches): #, influxdb
         print("Adding switch id %d" % id) 
         create_dp_cpu_link(id, switch, bridge_name)
 
+
+    # quietRunNs('ip link set dev %s mtu 1650' % bridge_name)
+
     quietRunNs( 'ip link set up dev %s' % bridge_name)
     
     create_internet_connectivity()
@@ -66,12 +69,12 @@ def create_int_collection_network(switches): #, influxdb
 def start_int_collector(influxdb):
     print("\nRunning INT collector")
     
-    # forward influx TCP connections to PSNC influx instance (not accessible directly from ns_int namespace where INT collector runs) 
-    print("socat TCP-LISTEN:8086,fork TCP:%s" % influxdb)
-    subprocess.Popen(
-        ['/usr/bin/socat','TCP-LISTEN:8086,fork','TCP:%s'%influxdb],
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
-    )
+    # # forward influx TCP connections to PSNC influx instance (not accessible directly from ns_int namespace where INT collector runs) 
+    # print("socat TCP-LISTEN:8086,fork TCP:%s" % influxdb)
+    # subprocess.Popen(
+    #     ['/usr/bin/socat','TCP-LISTEN:8086,fork','TCP:%s'%influxdb],
+    #     stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    # )
     
     #print("HELLO !!! {}".format(conf))
 
@@ -85,9 +88,11 @@ def create_internet_connectivity():
     
     _quietRun( 'ip link set internet_coll netns ns_int')
     quietRunNs( 'ifconfig internet_coll %s/24' % "192.168.0.2")
+    # quietRunNs('ip link set dev internet_coll mtu 1650')
     quietRunNs( 'ip link set dev internet_coll up')
     
     _quietRun( 'ifconfig internet_cont %s/24' % "192.168.0.1")
+    # _quietRun('ip link set dev internet_cont mtu 1650')
     _quietRun( 'ip link set dev internet_cont up')
     _quietRun( 'sysctl net.ipv4.conf.internet_cont.rp_filter=0')
  
@@ -101,7 +106,9 @@ def create_int_collector_link(bridge_name):
     _quietRun( 'ip link set int_collector netns ns_int')
 
     quietRunNs( 'ifconfig int_collector hw ether %s' % CONTROL_INT_COLLECTOR_MAC)
+    # quietRunNs('ip link set dev int_bridge mtu 1650')
     quietRunNs( 'ip link set dev int_bridge up')
+    # quietRunNs('ip link set dev int_collector mtu 1650')
     quietRunNs( 'ip link set dev int_collector up')
     for off in "rx tx sg tso ufo gso gro lro rxvlan txvlan rxhash".split(' '):
         quietRunNs( '/sbin/ethtool --offload int_bridge %s off' % off, display=False)
@@ -131,7 +138,10 @@ def create_dp_cpu_link(id, switch, bridge_name):
 
     _quietRun( 'ip link set veth_cpu_%i netns ns_int' % id)
     _quietRun( 'ifconfig veth_dp_%i hw ether %s' % (id, dp_mac))
+
+    # _quietRun('ip link set dev veth_dp_%i mtu 1650'%id)
     _quietRun( 'ip link set dev veth_dp_%i up' % id)
+    # quietRunNs('ip link set dev veth_cpu_%i mtu 1650'%id)
     quietRunNs( 'ip link set dev veth_cpu_%i up' % id)
     for off in "rx tx sg tso ufo gso gro lro rxvlan txvlan rxhash".split(' '):
         quietRun( '/sbin/ethtool --offload veth_dp_%i %s off' % (id, off))

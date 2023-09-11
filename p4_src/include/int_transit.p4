@@ -417,9 +417,9 @@ control Int_transit(inout headers hdr, inout metadata meta, inout standard_metad
             tb_int_inst_0003.apply();
             tb_int_inst_0407.apply();
 
-            log_msg("Q deq_depth transit: {}", {standard_metadata.deq_qdepth});
+            /*log_msg("Q deq_depth transit: {}", {standard_metadata.deq_qdepth});
 
-            log_msg("Q enq_depth transit: {}", {standard_metadata.enq_qdepth});
+            log_msg("Q enq_depth transit: {}", {standard_metadata.enq_qdepth});*/
 
             //update length fields in IP, UDP and INT
             int_update_ip_ac();

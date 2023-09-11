@@ -19,7 +19,7 @@ from p4utils.utils.sswitch_thrift_API import SimpleSwitchThriftAPI
 from p4utils.utils.thrift_API import UIn_Error
 from p4utils.utils.helper import load_topo
 
-queue_size = 64
+queue_size = 256
 log_format = "[%(asctime)s] [%(levelname)s] - %(message)s"
 logging.basicConfig(level=logging.ERROR, format=log_format, filename="log/int_collector.log")
 logger = logging.getLogger('int_collector')
@@ -154,6 +154,8 @@ class NetGraph(object):
         current_path = []
         src_host = self.G.get_host_name(ipv6_to_v4(report.flow_id["srcip"]))
         dst_host = self.G.get_host_name(ipv6_to_v4(report.flow_id["dstip"]))
+        src_node = None
+        dst_node = None
         for i, hop in enumerate(report.hop_metadata):
             if i == 0:
                 dst = hop.switch_id
@@ -173,7 +175,6 @@ class NetGraph(object):
         current_path.insert(0, src_node)
         current_path.insert(0, src_host)
         current_path.append(dst_host)
-        #print(current_path)
 
         key = hash_tuple(current_path[1:-1])
         if key not in self.path_infos:
@@ -183,10 +184,10 @@ class NetGraph(object):
         if report.update_path and report.ethertype == 0x86dd:
             
             p = self.select_path(src_host, dst_host, self.detour)
-            print("p1 = {}  w={} t={}".format(current_path, self.weight_path(current_path), report.trend))
-            print("p2 = {}  w={}".format(p, self.weight_path(p)))
+            # print("p1 = {}  w={} t={}".format(current_path, self.weight_path(current_path), report.trend))
+            # print("p2 = {}  w={}".format(p, self.weight_path(p)))
 
-            print("trend {} max_qdepth {}".format(report.trend, report.max_qdepth))
+            # print("trend {} max_qdepth {}".format(report.trend, report.max_qdepth))
             if self.weight_path(current_path) < self.weight_path(p)+self.delta:
                 return
 
@@ -196,11 +197,11 @@ class NetGraph(object):
 
             
 
-            key = hash_tuple(current_path[1:-1])
-            if key in self.path_infos:
-                l = self.path_infos[key].get_len()
-                print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
-                print(self.path_infos[key].linreg())
+            # key = hash_tuple(current_path[1:-1])
+            # if key in self.path_infos:
+            #     l = self.path_infos[key].get_len()
+            #     print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
+            #     print(self.path_infos[key].linreg())
 
             # Avoid exporting several times the same path
             if(self.get_path_digest(report.flow_id.values()) != hash_tuple(p)):
@@ -545,9 +546,10 @@ class IntReport():
             raise Exception("Unsupported INT version %s - skipping report" % self.int_version)
 
         self.ins_map = int.from_bytes(self.int_hdr[4:6], byteorder='big')
-        first_slice = (self.ins_map & 0b0000111100000000) << 4
-        second_slice = (self.ins_map & 0b1111000000000000) >> 4
-        self.ins_map = (first_slice + second_slice) >> 8
+        # first_slice = (self.ins_map & 0b0000111100000000) << 4
+        # second_slice = (self.ins_map & 0b1111000000000000) >> 4
+        # self.ins_map = (first_slice + second_slice) >> 8
+        self.ins_map = self.ins_map >> 8
         
         logger.debug(hex(self.ins_map))
 
@@ -761,9 +763,9 @@ def start_udp_server(args):
         logger.debug(binascii.hexlify(message))
         try:
             report = unpack_int_report(message)
-            g.update_infos(report)
             if report:
-                collector.add_report(report)
+                g.update_infos(report)
+                # collector.add_report(report)
         except Exception as e:
             logger.exception("Exception during handling the INT report")
 

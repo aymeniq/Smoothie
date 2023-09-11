@@ -30,15 +30,20 @@ control Flowlet(inout headers hdr, inout metadata meta, inout standard_metadata_
             { ip_src, ip_dst, meta.layer34_metadata.l4_src, meta.layer34_metadata.l4_dst, meta.layer34_metadata.l4_proto},
             (bit<14>)8192);
 
-         //Read previous time stamp
-        flowlet_time_stamp.read(meta.flowlet_last_stamp, (bit<32>)meta.register_index);
+        @atomic {
+            //Read previous time stamp
+            flowlet_time_stamp.read(meta.flowlet_last_stamp, (bit<32>)meta.register_index);
+
+            //Update timestamp
+            flowlet_time_stamp.write((bit<32>)meta.register_index, standard_metadata.ingress_global_timestamp);
+            feedback_ts.read(meta.feedback_ts, (bit<32>)meta.register_index);
+        }
 
         //Read previous flowlet id
         //flowlet_to_id.read(meta.flowlet_id, (bit<32>)meta.flowlet_register_index);
 
-        //Update timestamp
-        flowlet_time_stamp.write((bit<32>)meta.register_index, standard_metadata.ingress_global_timestamp);
-        feedback_ts.read(meta.feedback_ts, (bit<32>)meta.register_index);
+
+
     }
 
     action update_path(){
@@ -66,19 +71,16 @@ control Flowlet(inout headers hdr, inout metadata meta, inout standard_metadata_
 
         meta.update_path = 0;
         
-
-        @atomic {
-            read_flowlet_registers();
-        }
+        read_flowlet_registers();
 
         bit<48> flowlet_time_diff = standard_metadata.ingress_global_timestamp - meta.flowlet_last_stamp;
-        log_msg("last time: {}", {meta.flowlet_last_stamp});
+        //log_msg("last time: {}", {meta.flowlet_last_stamp});
         
         //check if inter-packet gap is > FLOWLET_TIMEOUT
-        if ((flowlet_time_diff > meta.flowlet_timeout) || (standard_metadata.enq_qdepth > 15)){
+        if (flowlet_time_diff > meta.flowlet_timeout){
             bit<48> backoff;
             random(backoff, 48w500000, 48w1000000);
-            if ((standard_metadata.ingress_global_timestamp - meta.feedback_ts) > backoff){
+            if ((standard_metadata.ingress_global_timestamp - meta.feedback_ts) > backoff){// avoid changing path too often and allow queue to discharge
                 @atomic {
                     feedback_ts.write((bit<32>)meta.register_index, standard_metadata.ingress_global_timestamp);
                 }

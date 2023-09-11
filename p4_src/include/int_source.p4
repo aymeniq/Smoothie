@@ -120,22 +120,17 @@ control Int_source(inout headers hdr, inout metadata meta, inout standard_metada
 
         bit<8> res;
         random<bit<8>>(res, (bit<8>) 1, meta.proportion);
+        if(res != 1){
+            meta.int_metadata.source = 0;
+            return;
+        }
         
-        if (meta.int_metadata.source == 1 && hdr.ipv4.isValid()) {
-            if(res != 1){
-                meta.int_metadata.source = 0;
-                return;
-            }   
+        if (meta.int_metadata.source == 1 && hdr.ipv4.isValid()) {     
             //apply INT source logic on INT monitored flow
             tb_int_source.apply();
         }
 
         if (meta.int_metadata.source == 1 && hdr.ipv6.isValid()) {
-            log_msg("random res: {} {}", {res, meta.proportion});
-            if(res != 1){
-                meta.int_metadata.source = 0;
-                return;
-            }    
             //apply INT source logic on INT monitored flow
             tb_intv6_source.apply();
         }

@@ -12,13 +12,13 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from mininet.node import Host
+from mininet.node import CPULimitedHost
 import ipaddress
 from p4utils.mininetlib.log import debug, info, output, warning, error, critical
 
 
 
-class IPv6Host(Host):
+class IPv6Host(CPULimitedHost):
 
     def config(self, ipv6, ipv6_gw=None, **params):
         r = super(IPv6Host, self).config(**params)
