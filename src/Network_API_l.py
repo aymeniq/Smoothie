@@ -1160,14 +1160,14 @@ class NetworkAPI(Topo):
 
     def benchmark(self):
         # traffic_config_gen.gen_config("topology.json", "DCTCP_CDF", "0", "1")
-        with open("../empirical-traffic-gen/config/clients", "rb") as fp:
+        with open("empirical-traffic-gen/config/clients", "rb") as fp:
             clients = pickle.load(fp)
-        with open("../empirical-traffic-gen/config/servers", "rb") as fp:
+        with open("empirical-traffic-gen/config/servers", "rb") as fp:
             servers = pickle.load(fp)
 
-        self.cmd_hosts(servers, "cd ../empirical-traffic-gen; ./bin/server -p 5050", is_server=True, wait=False)
+        self.cmd_hosts(servers, "cd empirical-traffic-gen; ./bin/server -p 5050", is_server=True, wait=False)
         time.sleep(4)#wait for servers to correctly start
-        self.cmd_hosts(clients, "cd ../empirical-traffic-gen; ./bin/client -c config/config", is_server=False, wait=True)
+        self.cmd_hosts(clients, "cd empirical-traffic-gen; ./bin/client -c config/config", is_server=False, wait=True)
         #self.cmd_hosts(clients, "sleep 10", wait=True)
 
         for h in servers:

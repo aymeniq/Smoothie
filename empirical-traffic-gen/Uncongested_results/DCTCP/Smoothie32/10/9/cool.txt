@@ -1,0 +1,1536 @@
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+2 - All files received from destination, total: 2
+14 - All files received from destination, total: 6
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.897093Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 192396777 usec
+Avg iteration: 22786596 usec
+Min duration:  99717 usec
+=== Stats for flows ===
+Max duration : 192396777 usec
+Avg iteration: 22786596 usec
+Min duration: 99717 usec
+=== Stats for requests ===
+Max iteration: 192396777 usec
+Avg iteration: 22786596 usec
+Min iteration: 99717 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+14 - All files received from destination, total: 6
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+0 - All files received from destination, total: 2
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.900145Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 207237150 usec
+Avg iteration: 25414033 usec
+Min duration:  163927 usec
+=== Stats for flows ===
+Max duration : 207237150 usec
+Avg iteration: 25414033 usec
+Min duration: 163927 usec
+=== Stats for requests ===
+Max iteration: 207237150 usec
+Avg iteration: 25414033 usec
+Min iteration: 163927 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.881360Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 275638385 usec
+Avg iteration: 23786172 usec
+Min duration:  34867 usec
+=== Stats for flows ===
+Max duration : 275638385 usec
+Avg iteration: 23786172 usec
+Min duration: 34867 usec
+=== Stats for requests ===
+Max iteration: 275638385 usec
+Avg iteration: 23786172 usec
+Min iteration: 34867 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+1 - All files received from destination, total: 2
+12 - All files received from destination, total: 3
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+13 - All files received from destination, total: 3
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.866482Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 284611659 usec
+Avg iteration: 26971771 usec
+Min duration:  41619 usec
+=== Stats for flows ===
+Max duration : 284611659 usec
+Avg iteration: 26971771 usec
+Min duration: 41619 usec
+=== Stats for requests ===
+Max iteration: 284611659 usec
+Avg iteration: 26971771 usec
+Min iteration: 41619 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+1 - All files received from destination, total: 2
+12 - All files received from destination, total: 3
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.847076Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 299272164 usec
+Avg iteration: 24592138 usec
+Min duration:  37542 usec
+=== Stats for flows ===
+Max duration : 299272164 usec
+Avg iteration: 24592138 usec
+Min duration: 37542 usec
+=== Stats for requests ===
+Max iteration: 299272164 usec
+Avg iteration: 24592138 usec
+Min iteration: 37542 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.843985Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 301838622 usec
+Avg iteration: 25986049 usec
+Min duration:  33183 usec
+=== Stats for flows ===
+Max duration : 301838622 usec
+Avg iteration: 25986049 usec
+Min duration: 33183 usec
+=== Stats for requests ===
+Max iteration: 301838622 usec
+Avg iteration: 25986049 usec
+Min iteration: 33183 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.845402Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 300795345 usec
+Avg iteration: 32143222 usec
+Min duration:  63979 usec
+=== Stats for flows ===
+Max duration : 300795345 usec
+Avg iteration: 32143222 usec
+Min duration: 63979 usec
+=== Stats for requests ===
+Max iteration: 300795345 usec
+Avg iteration: 32143222 usec
+Min iteration: 63979 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.837081Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 306616376 usec
+Avg iteration: 23855850 usec
+Min duration:  15851 usec
+=== Stats for flows ===
+Max duration : 306616376 usec
+Avg iteration: 23855850 usec
+Min duration: 15851 usec
+=== Stats for requests ===
+Max iteration: 306616376 usec
+Avg iteration: 23855850 usec
+Min iteration: 15851 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.833063Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 309882035 usec
+Avg iteration: 26476776 usec
+Min duration:  39296 usec
+=== Stats for flows ===
+Max duration : 309882035 usec
+Avg iteration: 26476776 usec
+Min duration: 39296 usec
+=== Stats for requests ===
+Max iteration: 309882035 usec
+Avg iteration: 26476776 usec
+Min iteration: 39296 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+2 - All files received from destination, total: 2
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+13 - All files received from destination, total: 3
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.811992Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 326035261 usec
+Avg iteration: 28867193 usec
+Min duration:  15456 usec
+=== Stats for flows ===
+Max duration : 326035261 usec
+Avg iteration: 28867193 usec
+Min duration: 15456 usec
+=== Stats for requests ===
+Max iteration: 326035261 usec
+Avg iteration: 28867193 usec
+Min iteration: 15456 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+1 - All files received from destination, total: 2
+12 - All files received from destination, total: 3
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.810431Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 326927746 usec
+Avg iteration: 24713636 usec
+Min duration:  32979 usec
+=== Stats for flows ===
+Max duration : 326927746 usec
+Avg iteration: 24713636 usec
+Min duration: 32979 usec
+=== Stats for requests ===
+Max iteration: 326927746 usec
+Avg iteration: 24713636 usec
+Min iteration: 32979 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+2 - All files received from destination, total: 2
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.794914Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 339677891 usec
+Avg iteration: 30384756 usec
+Min duration:  41043 usec
+=== Stats for flows ===
+Max duration : 339677891 usec
+Avg iteration: 30384756 usec
+Min duration: 41043 usec
+=== Stats for requests ===
+Max iteration: 339677891 usec
+Avg iteration: 30384756 usec
+Min iteration: 41043 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+2 - All files received from destination, total: 2
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.791488Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 342534475 usec
+Avg iteration: 28908223 usec
+Min duration:  44832 usec
+=== Stats for flows ===
+Max duration : 342534475 usec
+Avg iteration: 28908223 usec
+Min duration: 44832 usec
+=== Stats for requests ===
+Max iteration: 342534475 usec
+Avg iteration: 28908223 usec
+Min iteration: 44832 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+7 - All files received from destination, total: 5
+2 - All files received from destination, total: 2
+13 - All files received from destination, total: 3
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+6 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.788601Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 344968705 usec
+Avg iteration: 26737943 usec
+Min duration:  43269 usec
+=== Stats for flows ===
+Max duration : 344968705 usec
+Avg iteration: 26737943 usec
+Min duration: 43269 usec
+=== Stats for requests ===
+Max iteration: 344968705 usec
+Avg iteration: 26737943 usec
+Min iteration: 43269 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+12 - All files received from destination, total: 3
+1 - All files received from destination, total: 2
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+4 - All files received from destination, total: 3
+3 - All files received from destination, total: 4
+0 - All files received from destination, total: 2
+6 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.788477Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 344790704 usec
+Avg iteration: 31703208 usec
+Min duration:  61669 usec
+=== Stats for flows ===
+Max duration : 344790704 usec
+Avg iteration: 31703208 usec
+Min duration: 61669 usec
+=== Stats for requests ===
+Max iteration: 344790704 usec
+Avg iteration: 31703208 usec
+Min iteration: 61669 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 16
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:104, Port:5050
+Server[2]: 2002::a00:202, Port:5050
+Server[3]: 2002::a00:204, Port:5050
+Server[4]: 2002::a00:302, Port:5050
+Server[5]: 2002::a00:304, Port:5050
+Server[6]: 2002::a00:402, Port:5050
+Server[7]: 2002::a00:404, Port:5050
+Server[8]: 2002::a00:502, Port:5050
+Server[9]: 2002::a00:504, Port:5050
+Server[10]: 2002::a00:602, Port:5050
+Server[11]: 2002::a00:604, Port:5050
+Server[12]: 2002::a00:702, Port:5050
+Server[13]: 2002::a00:704, Port:5050
+Server[14]: 2002::a00:802, Port:5050
+Server[15]: 2002::a00:804, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 1.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 13690000us
+===
+Server[0] file count: 2
+Server[1] file count: 2
+Server[2] file count: 2
+Server[3] file count: 4
+Server[4] file count: 3
+Server[5] file count: 4
+Server[6] file count: 4
+Server[7] file count: 5
+Server[8] file count: 3
+Server[9] file count: 3
+Server[10] file count: 1
+Server[11] file count: 4
+Server[12] file count: 3
+Server[13] file count: 3
+Server[14] file count: 6
+Server[15] file count: 1
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:104 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:204 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:304 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:404 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:504 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:604 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:704 on port 5050
+Connected to 2002::a00:802 on port 5050
+Connected to 2002::a00:804 on port 5050
+===
+1 - All files received from destination, total: 2
+12 - All files received from destination, total: 3
+10 - All files received from destination, total: 1
+5 - All files received from destination, total: 4
+15 - All files received from destination, total: 1
+11 - All files received from destination, total: 4
+9 - All files received from destination, total: 3
+8 - All files received from destination, total: 3
+2 - All files received from destination, total: 2
+7 - All files received from destination, total: 5
+4 - All files received from destination, total: 3
+0 - All files received from destination, total: 2
+3 - All files received from destination, total: 4
+13 - All files received from destination, total: 3
+6 - All files received from destination, total: 4
+14 - All files received from destination, total: 6
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 0.744881Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 383390910 usec
+Avg iteration: 29807878 usec
+Min duration:  49733 usec
+=== Stats for flows ===
+Max duration : 383390910 usec
+Avg iteration: 29807878 usec
+Min duration: 49733 usec
+=== Stats for requests ===
+Max iteration: 383390910 usec
+Avg iteration: 29807878 usec
+Min iteration: 49733 usec
+client terminated...

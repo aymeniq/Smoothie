@@ -115,7 +115,7 @@ class File_generator():
             f.close()
 
     def write_to_file(self, default_bw):
-        config = "\"p4_src\": \"p4_src/int.p4\",\n\"cli\": true,\n\"pcap_dump\": true,\n\"enable_log\": true,"
+        config = "\"p4_src\": \"p4_src/int.p4\",\n\"cli\": false,\n\"pcap_dump\": true,\n\"enable_log\": true,"
         assignment_strategy = "\"assignment_strategy\": \"mixed\""
         output=""
 
