@@ -1,0 +1,512 @@
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+4 - All files received from destination, total: 6
+7 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+2 - All files received from destination, total: 3
+6 - All files received from destination, total: 10
+5 - All files received from destination, total: 7
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 4.079870Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 116142142 usec
+Avg iteration: 33882101 usec
+Min duration:  110670 usec
+=== Stats for flows ===
+Max duration : 116142142 usec
+Avg iteration: 33882101 usec
+Min duration: 110670 usec
+=== Stats for requests ===
+Max iteration: 116142142 usec
+Avg iteration: 33882101 usec
+Min iteration: 110670 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+4 - All files received from destination, total: 6
+5 - All files received from destination, total: 7
+7 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+2 - All files received from destination, total: 3
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.945171Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 165203290 usec
+Avg iteration: 39372144 usec
+Min duration:  55778 usec
+=== Stats for flows ===
+Max duration : 165203290 usec
+Avg iteration: 39372144 usec
+Min duration: 55778 usec
+=== Stats for requests ===
+Max iteration: 165203290 usec
+Avg iteration: 39372144 usec
+Min iteration: 55778 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+1 - All files received from destination, total: 5
+3 - All files received from destination, total: 8
+4 - All files received from destination, total: 6
+7 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+2 - All files received from destination, total: 3
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.934884Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 166327498 usec
+Avg iteration: 40228895 usec
+Min duration:  79476 usec
+=== Stats for flows ===
+Max duration : 166327498 usec
+Avg iteration: 40228895 usec
+Min duration: 79476 usec
+=== Stats for requests ===
+Max iteration: 166327498 usec
+Avg iteration: 40228895 usec
+Min iteration: 79476 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+4 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+7 - All files received from destination, total: 6
+2 - All files received from destination, total: 3
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.927911Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 166500775 usec
+Avg iteration: 41345467 usec
+Min duration:  57433 usec
+=== Stats for flows ===
+Max duration : 166500775 usec
+Avg iteration: 41345467 usec
+Min duration: 57433 usec
+=== Stats for requests ===
+Max iteration: 166500775 usec
+Avg iteration: 41345467 usec
+Min iteration: 57433 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+2 - All files received from destination, total: 3
+4 - All files received from destination, total: 6
+7 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.904079Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 168221376 usec
+Avg iteration: 41720774 usec
+Min duration:  128978 usec
+=== Stats for flows ===
+Max duration : 168221376 usec
+Avg iteration: 41720774 usec
+Min duration: 128978 usec
+=== Stats for requests ===
+Max iteration: 168221376 usec
+Avg iteration: 41720774 usec
+Min iteration: 128978 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+7 - All files received from destination, total: 6
+4 - All files received from destination, total: 6
+0 - All files received from destination, total: 5
+2 - All files received from destination, total: 3
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.902725Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 168349728 usec
+Avg iteration: 41238485 usec
+Min duration:  243759 usec
+=== Stats for flows ===
+Max duration : 168349728 usec
+Avg iteration: 41238485 usec
+Min duration: 243759 usec
+=== Stats for requests ===
+Max iteration: 168349728 usec
+Avg iteration: 41238485 usec
+Min iteration: 243759 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+0 - All files received from destination, total: 5
+4 - All files received from destination, total: 6
+2 - All files received from destination, total: 3
+7 - All files received from destination, total: 6
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.872660Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 170128552 usec
+Avg iteration: 40407963 usec
+Min duration:  74814 usec
+=== Stats for flows ===
+Max duration : 170128552 usec
+Avg iteration: 40407963 usec
+Min duration: 74814 usec
+=== Stats for requests ===
+Max iteration: 170128552 usec
+Avg iteration: 40407963 usec
+Min iteration: 74814 usec
+client terminated...
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: DCTCP_CDF
+Avg request size: 1711250.00 bytes
+Fanout: 1, Prob: 100
+load: 34.00 Mbps
+Number of Requests: 50
+Average flow inter-arrival period: 402647us
+===
+Server[0] file count: 5
+Server[1] file count: 5
+Server[2] file count: 3
+Server[3] file count: 8
+Server[4] file count: 6
+Server[5] file count: 7
+Server[6] file count: 10
+Server[7] file count: 6
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+3 - All files received from destination, total: 8
+1 - All files received from destination, total: 5
+4 - All files received from destination, total: 6
+2 - All files received from destination, total: 3
+0 - All files received from destination, total: 5
+7 - All files received from destination, total: 6
+5 - All files received from destination, total: 7
+6 - All files received from destination, total: 10
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.823497Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 50
+Max duration : 173280887 usec
+Avg iteration: 41596189 usec
+Min duration:  17592 usec
+=== Stats for flows ===
+Max duration : 173280887 usec
+Avg iteration: 41596189 usec
+Min duration: 17592 usec
+=== Stats for requests ===
+Max iteration: 173280887 usec
+Avg iteration: 41596189 usec
+Min iteration: 17592 usec
+client terminated...

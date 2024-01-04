@@ -18,12 +18,25 @@ from helper import *
 from p4utils.utils.sswitch_thrift_API import SimpleSwitchThriftAPI
 from p4utils.utils.thrift_API import UIn_Error
 from p4utils.utils.helper import load_topo
+import signal
+import sys
+
+import pickle
 
 queue_size = 256
 log_format = "[%(asctime)s] [%(levelname)s] - %(message)s"
 logging.basicConfig(level=logging.ERROR, format=log_format, filename="log/int_collector.log")
 logger = logging.getLogger('int_collector')
 #CONTROLLER_PORT = 4
+
+# flaps = {}
+
+# def signal_handler(sig, frame):
+#     with open('flap.pkl', 'wb') as handle:
+#         pickle.dump(flaps, handle)
+#     sys.exit(0)
+
+# signal.signal(signal.SIGTERM, signal_handler)
 
 
 def parse_params():
@@ -49,7 +62,7 @@ def parse_params():
 
     return parser.parse_args()
 
-def hash_tuple(flow):
+def hash_list(flow):
     # Combine the 6 elements of the flow tuple into a single string
     flow_string = "".join([str(x) for x in flow])
     # Hash the string using the md5 algorithm
@@ -132,15 +145,15 @@ class NetGraph(object):
         #matplotlib.pyplot.show()
 
     def store_flow_path(self, flow, path):
-        key = hash_tuple(flow)
-        value = hash_tuple(path)
+        key = hash_list(flow)
+        value = hash_list(path)
         if key in self.flows:
             self.flows[key][0] = value
         else:
             self.flows[key] = [value]
 
     def get_path_digest(self, flow):
-        key = hash_tuple(flow)
+        key = hash_list(flow)
         if key in self.flows:
             return self.flows[key][0]
         else:
@@ -149,6 +162,9 @@ class NetGraph(object):
 
     def update_infos(self, report):
         #start_time = time.time()
+        key = hash_list(report.flow_id.values())
+        # if key not in flaps:
+        #     flaps[key] = 0
         dst = src = 0
         queue_load = 0
         current_path = []
@@ -176,7 +192,7 @@ class NetGraph(object):
         current_path.insert(0, src_host)
         current_path.append(dst_host)
 
-        key = hash_tuple(current_path[1:-1])
+        key = hash_list(current_path[1:-1])
         if key not in self.path_infos:
             self.path_infos[key] = path_infos()
         self.path_infos[key].add_weight(self.weight_path(current_path), time.time())
@@ -197,18 +213,23 @@ class NetGraph(object):
 
             
 
-            # key = hash_tuple(current_path[1:-1])
+            # key = hash_list(current_path[1:-1])
             # if key in self.path_infos:
             #     l = self.path_infos[key].get_len()
             #     print([x for _, x in sorted(zip(self.path_infos[key].times[:l], self.path_infos[key].weights[:l]))])
             #     print(self.path_infos[key].linreg())
 
             # Avoid exporting several times the same path
-            if(self.get_path_digest(report.flow_id.values()) != hash_tuple(p)):
+            if(self.get_path_digest(report.flow_id.values()) != hash_list(p)):
+                # self.count_flap(report.flow_id.values())
                 res = self.path_to_ips(p)
                 self.export_path(res, self.G.get_p4switch_id(p[1]), self.G.get_thrift_port(p[1]))
                 self.store_flow_path(report.flow_id.values(), p)
             #print("update_infos : --- %s seconds ---" % (time.time() - start_time))
+
+    def count_flap(self, flow_id):
+        key = hash_list(flow_id)
+        flaps[key] += 1
 
 
     def weight_path(self, p):
@@ -228,7 +249,7 @@ class NetGraph(object):
 
     def select_path(self, src, dst, detour):
         #generator = nx.all_shortest_paths(self.G, source=src, target=dst)
-        key = hash_tuple([src, dst])
+        key = hash_list([src, dst])
         if key in self.paths:
             paths = self.paths[key]
         else:

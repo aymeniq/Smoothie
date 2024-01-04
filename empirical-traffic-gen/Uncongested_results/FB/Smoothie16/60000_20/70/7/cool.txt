@@ -1,0 +1,1280 @@
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[5]
+Received 2000 files from Server[5]
+Received 3000 files from Server[5]
+Received 4000 files from Server[5]
+Received 1000 files from Server[1]
+Received 5000 files from Server[5]
+Received 1000 files from Server[7]
+Received 6000 files from Server[5]
+Received 7000 files from Server[5]
+Received 2000 files from Server[1]
+Received 8000 files from Server[5]
+Received 1000 files from Server[2]
+Received 9000 files from Server[5]
+Received 10000 files from Server[5]
+Received 2000 files from Server[2]
+Received 3000 files from Server[1]
+Received 11000 files from Server[5]
+Received 12000 files from Server[5]
+Received 1000 files from Server[0]
+5 - All files received from destination, total: 12502
+Received 1000 files from Server[4]
+Received 3000 files from Server[2]
+Received 2000 files from Server[4]
+Received 4000 files from Server[1]
+Received 1000 files from Server[6]
+Received 2000 files from Server[7]
+Received 4000 files from Server[2]
+Received 2000 files from Server[0]
+Received 3000 files from Server[4]
+Received 1000 files from Server[3]
+Received 5000 files from Server[1]
+Received 2000 files from Server[6]
+Received 3000 files from Server[0]
+Received 4000 files from Server[4]
+Received 5000 files from Server[2]
+Received 6000 files from Server[1]
+Received 4000 files from Server[0]
+Received 6000 files from Server[2]
+Received 3000 files from Server[7]
+Received 5000 files from Server[0]
+Received 2000 files from Server[3]
+Received 3000 files from Server[6]
+Received 7000 files from Server[1]
+Received 5000 files from Server[4]
+Received 4000 files from Server[7]
+Received 7000 files from Server[2]
+Received 5000 files from Server[7]
+Received 6000 files from Server[0]
+Received 6000 files from Server[7]
+Received 6000 files from Server[4]
+Received 8000 files from Server[1]
+Received 8000 files from Server[2]
+Received 7000 files from Server[7]
+Received 9000 files from Server[1]
+Received 7000 files from Server[0]
+Received 9000 files from Server[2]
+Received 7000 files from Server[4]
+Received 8000 files from Server[0]
+Received 8000 files from Server[7]
+Received 4000 files from Server[6]
+Received 10000 files from Server[1]
+Received 3000 files from Server[3]
+Received 9000 files from Server[0]
+Received 8000 files from Server[4]
+Received 10000 files from Server[2]
+Received 9000 files from Server[7]
+Received 10000 files from Server[0]
+Received 10000 files from Server[7]
+Received 9000 files from Server[4]
+Received 11000 files from Server[1]
+Received 4000 files from Server[3]
+Received 11000 files from Server[2]
+Received 5000 files from Server[6]
+Received 11000 files from Server[0]
+Received 12000 files from Server[1]
+Received 10000 files from Server[4]
+Received 11000 files from Server[7]
+1 - All files received from destination, total: 12419
+Received 12000 files from Server[2]
+2 - All files received from destination, total: 12545
+Received 12000 files from Server[7]
+Received 12000 files from Server[0]
+Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[0]
+Received 2000 files from Server[0]
+Received 3000 files from Server[0]
+Received 4000 files from Server[0]
+Received 1000 files from Server[4]
+Received 5000 files from Server[0]
+Received 1000 files from Server[5]
+Received 2000 files from Server[4]
+Received 6000 files from Server[0]
+Received 1000 files from Server[6]
+Received 1000 files from Server[1]
+Received 2000 files from Server[6]
+Received 7000 files from Server[0]
+Received 3000 files from Server[4]
+Received 8000 files from Server[0]
+Received 9000 files from Server[0]
+Received 2000 files from Server[1]
+Received 2000 files from Server[5]
+Received 10000 files from Server[0]
+Received 11000 files from Server[0]
+Received 4000 files from Server[4]
+Received 3000 files from Server[6]
+Received 12000 files from Server[0]
+0 - All files received from destination, total: 12594
+Received 3000 files from Server[1]
+Received 3000 files from Server[5]
+Received 5000 files from Server[4]
+Received 4000 files from Server[6]
+Received 4000 files from Server[5]
+Received 4000 files from Server[1]
+Received 6000 files from Server[4]
+Received 5000 files from Server[6]
+Received 6000 files from Server[6]
+Received 5000 files from Server[1]
+Received 5000 files from Server[5]
+Received 6000 files from Server[1]
+Received 7000 files from Server[6]
+Received 7000 files from Server[4]
+Received 6000 files from Server[5]
+Received 1000 files from Server[2]
+Received 7000 files from Server[5]
+Received 8000 files from Server[6]
+Received 8000 files from Server[4]
+Received 7000 files from Server[1]
+Received 2000 files from Server[2]
+Received 1000 files from Server[7]
+Received 1000 files from Server[3]
+Received 8000 files from Server[5]
+Received 9000 files from Server[6]
+Received 3000 files from Server[2]
+Received 8000 files from Server[1]
+Received 9000 files from Server[5]
+Received 9000 files from Server[4]
+Received 10000 files from Server[6]
+Received 10000 files from Server[5]
+Received 10000 files from Server[4]
+Received 4000 files from Server[2]
+Received 9000 files from Server[1]
+Received 11000 files from Server[6]
+Received 2000 files from Server[3]
+Received 5000 files from Server[2]
+Received 11000 files from Server[5]
+Received 11000 files from Server[4]
+Received 6000 files from Server[2]
+Received 12000 files from Server[6]
+Received 10000 files from Server[1]
+Received 12000 files from Server[4]
+Received 12000 files from Server[5]
+5 - All files received from destination, total: 12502
+6 - All files received from destination, total: 12486
+Received 11000 files from Server[1]
+Received 2000 files from Server[7]
+Received 3000 files from Server[3]
+Received 7000 files from Server[2]
+4 - All files received from destination, total: 12519
+Received 12000 files from Server[1]
+Received 3000 files from Server[7]
+Received 8000 files from Server[2]
+1 - All files received from destination, total: 12419
+Received 9000 files from Server[2]
+Received 4000 files from Server[3Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[3]
+Received 2000 files from Server[3]
+Received 3000 files from Server[3]
+Received 1000 files from Server[1]
+Received 4000 files from Server[3]
+Received 5000 files from Server[3]
+Received 2000 files from Server[1]
+Received 6000 files from Server[3]
+Received 1000 files from Server[4]
+Received 7000 files from Server[3]
+Received 1000 files from Server[0]
+Received 3000 files from Server[1]
+Received 8000 files from Server[3]
+Received 9000 files from Server[3]
+Received 2000 files from Server[4]
+Received 10000 files from Server[3]
+Received 2000 files from Server[0]
+Received 11000 files from Server[3]
+Received 4000 files from Server[1]
+Received 3000 files from Server[4]
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+Received 3000 files from Server[0]
+Received 1000 files from Server[5]
+Received 1000 files from Server[2]
+Received 1000 files from Server[6]
+Received 5000 files from Server[1]
+Received 4000 files from Server[0]
+Received 4000 files from Server[4]
+Received 6000 files from Server[1]
+Received 5000 files from Server[0]
+Received 2000 files from Server[6]
+Received 2000 files from Server[2]
+Received 5000 files from Server[4]
+Received 2000 files from Server[5]
+Received 6000 files from Server[0]
+Received 7000 files from Server[1]
+Received 6000 files from Server[4]
+Received 7000 files from Server[0]
+Received 8000 files from Server[0]
+Received 3000 files from Server[6]
+Received 3000 files from Server[5]
+Received 1000 files from Server[7]
+Received 7000 files from Server[4]
+Received 8000 files from Server[1]
+Received 3000 files from Server[2]
+Received 9000 files from Server[0]
+Received 8000 files from Server[4]
+Received 10000 files from Server[0]
+Received 9000 files from Server[1]
+Received 9000 files from Server[4]
+Received 4000 files from Server[6]
+Received 4000 files from Server[2]
+Received 4000 files from Server[5]
+Received 11000 files from Server[0]
+Received 10000 files from Server[1]
+Received 10000 files from Server[4]
+Received 5000 files from Server[2]
+Received 11000 files from Server[1]
+Received 2000 files from Server[7]
+Received 5000 files from Server[6]
+Received 5000 files from Server[5]
+Received 12000 files from Server[0]
+0 - All files received from destination, total: 12594
+Received 11000 files from Server[4]
+Received 6000 files from Server[2]
+Received 12000 files from Server[1]
+1 - All files received from destination, total: 12419
+Received 3000 files from Server[7]
+Received 12000 files from Server[4]
+Received 6000 files from Server[5]
+Received 6000 files from Server[6]
+4 - All files received from destination, total: 12519
+Received 7000 files from Server[2]
+Received 7000 files from Server[5]
+Received 4000 files from Server[7]
+Received 7000 files from Server[6]
+Received 5000 files from Server[7]
+Received 8000 files from Server[5]
+Received 8000 files from Server[6]
+Received 6000 files from Server[7]
+Received 8000 files Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[6]
+Received 2000 files from Server[6]
+Received 1000 files from Server[5]
+Received 3000 files from Server[6]
+Received 4000 files from Server[6]
+Received 5000 files from Server[6]
+Received 6000 files from Server[6]
+Received 2000 files from Server[5]
+Received 7000 files from Server[6]
+Received 8000 files from Server[6]
+Received 9000 files from Server[6]
+Received 3000 files from Server[5]
+Received 10000 files from Server[6]
+Received 11000 files from Server[6]
+Received 1000 files from Server[0]
+Received 12000 files from Server[6]
+6 - All files received from destination, total: 12486
+Received 4000 files from Server[5]
+Received 1000 files from Server[3]
+Received 2000 files from Server[0]
+Received 1000 files from Server[4]
+Received 5000 files from Server[5]
+Received 2000 files from Server[3]
+Received 3000 files from Server[0]
+Received 6000 files from Server[5]
+Received 2000 files from Server[4]
+Received 3000 files from Server[3]
+Received 4000 files from Server[0]
+Received 7000 files from Server[5]
+Received 3000 files from Server[4]
+Received 1000 files from Server[2]
+Received 5000 files from Server[0]
+Received 8000 files from Server[5]
+Received 4000 files from Server[3]
+Received 4000 files from Server[4]
+Received 1000 files from Server[1]
+Received 6000 files from Server[0]
+Received 9000 files from Server[5]
+Received 5000 files from Server[4]
+Received 5000 files from Server[3]
+Received 2000 files from Server[2]
+Received 10000 files from Server[5]
+Received 7000 files from Server[0]
+Received 6000 files from Server[4]
+Received 8000 files from Server[0]
+Received 6000 files from Server[3]
+Received 11000 files from Server[5]
+Received 9000 files from Server[0]
+Received 7000 files from Server[4]
+Received 3000 files from Server[2]
+Received 12000 files from Server[5]
+Received 7000 files from Server[3]
+Received 10000 files from Server[0]
+5 - All files received from destination, total: 12502
+Received 2000 files from Server[1]
+Received 8000 files from Server[4]
+Received 1000 files from Server[7]
+Received 4000 files from Server[2]
+Received 9000 files from Server[4]
+Received 8000 files from Server[3]
+Received 11000 files from Server[0]
+Received 10000 files from Server[4]
+Received 12000 files from Server[0]
+Received 9000 files from Server[3]
+Received 5000 files from Server[2]
+0 - All files received from destination, total: 12594
+Received 3000 files from Server[1]
+Received 11000 files from Server[4]
+Received 12000 files from Server[4]
+Received 10000 files from Server[3]
+Received 6000 files from Server[2]
+Received 2000 files from Server[7]
+4 - All files received from destination, total: 12519
+Received 4000 files from Server[1]
+Received 11000 files from Server[3]
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+Received 5000 files from Server[1]
+Received 7000 files from Server[2]
+Received 3000 files from Server[7]
+Received 6000 files from Server[1Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[7]
+Received 1000 files from Server[0]
+Received 1000 files from Server[3]
+Received 1000 files from Server[4]
+Received 2000 files from Server[7]
+Received 2000 files from Server[3]
+Received 2000 files from Server[4]
+Received 3000 files from Server[7]
+Received 2000 files from Server[0]
+Received 4000 files from Server[7]
+Received 3000 files from Server[4]
+Received 5000 files from Server[7]
+Received 3000 files from Server[3]
+Received 6000 files from Server[7]
+Received 3000 files from Server[0]
+Received 4000 files from Server[4]
+Received 7000 files from Server[7]
+Received 4000 files from Server[3]
+Received 8000 files from Server[7]
+Received 4000 files from Server[0]
+Received 9000 files from Server[7]
+Received 10000 files from Server[7]
+Received 5000 files from Server[4]
+Received 5000 files from Server[0]
+Received 11000 files from Server[7]
+Received 5000 files from Server[3]
+Received 6000 files from Server[4]
+Received 12000 files from Server[7]
+Received 1000 files from Server[6]
+7 - All files received from destination, total: 12510
+Received 6000 files from Server[0]
+Received 7000 files from Server[0]
+Received 8000 files from Server[0]
+Received 6000 files from Server[3]
+Received 7000 files from Server[4]
+Received 9000 files from Server[0]
+Received 7000 files from Server[3]
+Received 10000 files from Server[0]
+Received 8000 files from Server[4]
+Received 2000 files from Server[6]
+Received 8000 files from Server[3]
+Received 9000 files from Server[3]
+Received 11000 files from Server[0]
+Received 9000 files from Server[4]
+Received 10000 files from Server[3]
+Received 3000 files from Server[6]
+Received 12000 files from Server[0]
+Received 10000 files from Server[4]
+0 - All files received from destination, total: 12594
+Received 1000 files from Server[1]
+Received 11000 files from Server[3]
+Received 1000 files from Server[5]
+Received 4000 files from Server[6]
+Received 2000 files from Server[1]
+Received 12000 files from Server[3]
+Received 11000 files from Server[4]
+3 - All files received from destination, total: 12425
+Received 12000 files from Server[4]
+Received 3000 files from Server[1]
+4 - All files received from destination, total: 12519
+Received 2000 files from Server[5]
+Received 5000 files from Server[6]
+Received 4000 files from Server[1]
+Received 3000 files from Server[5]
+Received 5000 files from Server[1]
+Received 6000 files from Server[1]
+Received 6000 files from Server[6]
+Received 4000 files from Server[5]
+Received 7000 files from Server[1]
+Received 7000 files from Server[6]
+Received 5000 files from Server[5]
+Received 8000 files from Server[1]
+Received 8000 files from Server[6]
+Received 9000 files from Server[1]
+Received 6000 files from Server[5]
+Received 1000 files from Server[2]
+Received 10000 files from Server[1]
+Received 9000 files from Server[6]
+Received 7000 files from Server[5]
+Received 11000 files from Server[1]
+Received 8000 files from Server[5]
+Received 10000 filRandom seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[2]
+Received 1000 files from Server[5]
+Received 2000 files from Server[2]
+Received 3000 files from Server[2]
+Received 4000 files from Server[2]
+Received 1000 files from Server[6]
+Received 2000 files from Server[5]
+Received 5000 files from Server[2]
+Received 6000 files from Server[2]
+Received 7000 files from Server[2]
+Received 8000 files from Server[2]
+Received 3000 files from Server[5]
+Received 2000 files from Server[6]
+Received 9000 files from Server[2]
+Received 10000 files from Server[2]
+Received 11000 files from Server[2]
+Received 4000 files from Server[5]
+Received 12000 files from Server[2]
+Received 3000 files from Server[6]
+2 - All files received from destination, total: 12545
+Received 1000 files from Server[3]
+Received 5000 files from Server[5]
+Received 4000 files from Server[6]
+Received 2000 files from Server[3]
+Received 6000 files from Server[5]
+Received 5000 files from Server[6]
+Received 1000 files from Server[1]
+Received 7000 files from Server[5]
+Received 1000 files from Server[4]
+Received 8000 files from Server[5]
+Received 6000 files from Server[6]
+Received 2000 files from Server[1]
+Received 3000 files from Server[3]
+Received 9000 files from Server[5]
+Received 1000 files from Server[7]
+Received 2000 files from Server[4]
+Received 7000 files from Server[6]
+Received 1000 files from Server[0]
+Received 10000 files from Server[5]
+Received 8000 files from Server[6]
+Received 4000 files from Server[3]
+Received 2000 files from Server[0]
+Received 3000 files from Server[1]
+Received 9000 files from Server[6]
+Received 3000 files from Server[4]
+Received 11000 files from Server[5]
+Received 2000 files from Server[7]
+Received 10000 files from Server[6]
+Received 12000 files from Server[5]
+5 - All files received from destination, total: 12502
+Received 4000 files from Server[1]
+Received 3000 files from Server[7]
+Received 3000 files from Server[0]
+Received 11000 files from Server[6]
+Received 5000 files from Server[3]
+Received 4000 files from Server[4]
+Received 12000 files from Server[6]
+6 - All files received from destination, total: 12486
+Received 4000 files from Server[7]
+Received 4000 files from Server[0]
+Received 5000 files from Server[7]
+Received 6000 files from Server[3]
+Received 5000 files from Server[4]
+Received 5000 files from Server[1]
+Received 6000 files from Server[7]
+Received 5000 files from Server[0]
+Received 6000 files from Server[1]
+Received 6000 files from Server[4]
+Received 7000 files from Server[7]
+Received 7000 files from Server[3]
+Received 6000 files from Server[0]
+Received 7000 files from Server[1]
+Received 8000 files from Server[7]
+Received 9000 files from Server[7]
+Received 7000 files from Server[0]
+Received 7000 files from Server[4]
+Received 8000 files from Server[3]
+Received 10000 files from Server[7]
+Received 8000 files from Server[0]
+Received 8000 files from Server[1]
+Received 11000 files from Server[7]
+Received 8000 files from Server[4]
+ReceiRandom seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[1]
+Received 2000 files from Server[1]
+Received 3000 files from Server[1]
+Received 4000 files from Server[1]
+Received 1000 files from Server[4]
+Received 2000 files from Server[4]
+Received 1000 files from Server[2]
+Received 3000 files from Server[4]
+Received 5000 files from Server[1]
+Received 4000 files from Server[4]
+Received 6000 files from Server[1]
+Received 1000 files from Server[6]
+Received 5000 files from Server[4]
+Received 6000 files from Server[4]
+Received 7000 files from Server[1]
+Received 1000 files from Server[5]
+Received 2000 files from Server[2]
+Received 7000 files from Server[4]
+Received 2000 files from Server[6]
+Received 8000 files from Server[1]
+Received 8000 files from Server[4]
+Received 3000 files from Server[2]
+Received 3000 files from Server[6]
+Received 9000 files from Server[4]
+Received 9000 files from Server[1]
+Received 10000 files from Server[4]
+Received 1000 files from Server[3]
+Received 11000 files from Server[4]
+Received 10000 files from Server[1]
+Received 4000 files from Server[2]
+Received 4000 files from Server[6]
+Received 12000 files from Server[4]
+4 - All files received from destination, total: 12519
+Received 11000 files from Server[1]
+Received 5000 files from Server[2]
+Received 2000 files from Server[3]
+Received 2000 files from Server[5]
+Received 5000 files from Server[6]
+Received 12000 files from Server[1]
+Received 6000 files from Server[2]
+1 - All files received from destination, total: 12419
+Received 3000 files from Server[5]
+Received 6000 files from Server[6]
+Received 3000 files from Server[3]
+Received 7000 files from Server[2]
+Received 1000 files from Server[0]
+Received 7000 files from Server[6]
+Received 8000 files from Server[2]
+Received 1000 files from Server[7]
+Received 8000 files from Server[6]
+Received 4000 files from Server[3]
+Received 9000 files from Server[2]
+Received 2000 files from Server[0]
+Received 9000 files from Server[6]
+Received 4000 files from Server[5]
+Received 10000 files from Server[6]
+Received 10000 files from Server[2]
+Received 3000 files from Server[0]
+Received 5000 files from Server[3]
+Received 11000 files from Server[6]
+Received 5000 files from Server[5]
+Received 2000 files from Server[7]
+Received 12000 files from Server[6]
+Received 4000 files from Server[0]
+Received 11000 files from Server[2]
+6 - All files received from destination, total: 12486
+Received 6000 files from Server[5]
+Received 6000 files from Server[3]
+Received 5000 files from Server[0]
+Received 3000 files from Server[7]
+Received 12000 files from Server[2]
+Received 7000 files from Server[5]
+2 - All files received from destination, total: 12545
+Received 4000 files from Server[7]
+Received 7000 files from Server[3]
+Received 6000 files from Server[0]
+Received 8000 files from Server[5]
+Received 5000 files from Server[7]
+Received 7000 files from Server[0]
+Received 8000 files from Server[3]
+Received 8000 files from Server[0]
+Received 6000 files Random seed: 123
+Reading configuration file: config/config
+===
+Number of servers: 8
+Number of fanouts: 1
+===
+Server[0]: 2002::a00:102, Port:5050
+Server[1]: 2002::a00:202, Port:5050
+Server[2]: 2002::a00:302, Port:5050
+Server[3]: 2002::a00:402, Port:5050
+Server[4]: 2002::a00:502, Port:5050
+Server[5]: 2002::a00:602, Port:5050
+Server[6]: 2002::a00:702, Port:5050
+Server[7]: 2002::a00:802, Port:5050
+Loading request size distribution: FB_CDF
+Avg request size: 342.24 bytes
+Fanout: 1, Prob: 100
+load: 14.00 Mbps
+Number of Requests: 100000
+Average flow inter-arrival period: 195us
+===
+Server[0] file count: 12594
+Server[1] file count: 12419
+Server[2] file count: 12545
+Server[3] file count: 12425
+Server[4] file count: 12519
+Server[5] file count: 12502
+Server[6] file count: 12486
+Server[7] file count: 12510
+Connecting to servers...
+Connected to 2002::a00:102 on port 5050
+Connected to 2002::a00:202 on port 5050
+Connected to 2002::a00:302 on port 5050
+Connected to 2002::a00:402 on port 5050
+Connected to 2002::a00:502 on port 5050
+Connected to 2002::a00:602 on port 5050
+Connected to 2002::a00:702 on port 5050
+Connected to 2002::a00:802 on port 5050
+===
+Received 1000 files from Server[1]
+Received 2000 files from Server[1]
+Received 3000 files from Server[1]
+Received 1000 files from Server[7]
+Received 4000 files from Server[1]
+Received 5000 files from Server[1]
+Received 6000 files from Server[1]
+Received 7000 files from Server[1]
+Received 8000 files from Server[1]
+Received 2000 files from Server[7]
+Received 9000 files from Server[1]
+Received 10000 files from Server[1]
+Received 11000 files from Server[1]
+Received 3000 files from Server[7]
+Received 12000 files from Server[1]
+1 - All files received from destination, total: 12419
+Received 1000 files from Server[3]
+Received 4000 files from Server[7]
+Received 5000 files from Server[7]
+Received 6000 files from Server[7]
+Received 2000 files from Server[3]
+Received 1000 files from Server[0]
+Received 7000 files from Server[7]
+Received 1000 files from Server[6]
+Received 1000 files from Server[2]
+Received 2000 files from Server[0]
+Received 1000 files from Server[4]
+Received 8000 files from Server[7]
+Received 2000 files from Server[6]
+Received 3000 files from Server[0]
+Received 9000 files from Server[7]
+Received 3000 files from Server[3]
+Received 2000 files from Server[4]
+Received 2000 files from Server[2]
+Received 4000 files from Server[0]
+Received 10000 files from Server[7]
+Received 5000 files from Server[0]
+Received 3000 files from Server[6]
+Received 1000 files from Server[5]
+Received 4000 files from Server[3]
+Received 6000 files from Server[0]
+Received 3000 files from Server[4]
+Received 11000 files from Server[7]
+Received 2000 files from Server[5]
+Received 3000 files from Server[2]
+Received 12000 files from Server[7]
+Received 3000 files from Server[5]
+Received 7000 files from Server[0]
+7 - All files received from destination, total: 12510
+Received 4000 files from Server[4]
+Received 4000 files from Server[6]
+Received 5000 files from Server[3]
+Received 8000 files from Server[0]
+Received 4000 files from Server[5]
+Received 4000 files from Server[2]
+Received 5000 files from Server[5]
+Received 9000 files from Server[0]
+Received 5000 files from Server[4]
+Received 6000 files from Server[3]
+Received 10000 files from Server[0]
+Received 5000 files from Server[6]
+Received 6000 files from Server[5]
+Received 5000 files from Server[2]
+Received 6000 files from Server[4]
+Received 11000 files from Server[0]
+Received 7000 files from Server[5]
+Received 7000 files from Server[3]
+Received 6000 files from Server[2]
+Received 12000 files from Server[0]
+Received 6000 files from Server[6]
+Received 8000 files from Server[5]
+0 - All files received from destination, total: 12594
+Received 7000 files from Server[4]
+Received 9000 files from Server[5]
+Received 8000 files from Server[3]
+Received 10000 files from Server[5]
+Received 7000 files from Server[2]
+Received 7000 files from Server[6]
+Received 11000 files from Server[5]
+Received 8000 files from Server[6]
+Received 9000 files from Server[3]
+Received 8000 files from Server[4]
+Receifrom Server[2]
+Received 9000 files from Server[5]
+Received 9000 files from Server[6]
+Received 10000 files from Server[5]
+Received 7000 files from Server[7]
+Received 10000 files from Server[6]
+Received 11000 files from Server[5]
+Received 9000 files from Server[2]
+Received 8000 files from Server[7]
+Received 11000 files from Server[6]
+Received 12000 files from Server[5]
+5 - All files received from destination, total: 12502
+Received 12000 files from Server[6]
+Received 10000 files from Server[2]
+Received 9000 files from Server[7]
+6 - All files received from destination, total: 12486
+Received 10000 files from Server[7]
+Received 11000 files from Server[2]
+Received 11000 files from Server[7]
+Received 12000 files from Server[2]
+Received 12000 files from Server[7]
+7 - All files received from destination, total: 12510
+2 - All files received from destination, total: 12545
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.574585Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 78999741 usec
+Avg iteration: 42529 usec
+Min duration:  188707 usec
+=== Stats for flows ===
+Max duration : 78999741 usec
+Avg iteration: 42529 usec
+Min duration: 188707 usec
+=== Stats for requests ===
+Max iteration: 78999741 usec
+Avg iteration: 42529 usec
+Min iteration: 188707 usec
+client terminated...
+ved 9000 files from Server[0]
+Received 9000 files from Server[3]
+Received 9000 files from Server[1]
+Received 10000 files from Server[0]
+Received 12000 files from Server[7]
+7 - All files received from destination, total: 12510
+Received 10000 files from Server[3]
+Received 9000 files from Server[4]
+Received 11000 files from Server[0]
+Received 10000 files from Server[1]
+Received 11000 files from Server[3]
+Received 10000 files from Server[4]
+Received 12000 files from Server[0]
+0 - All files received from destination, total: 12594
+Received 11000 files from Server[1]
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+Received 12000 files from Server[1]
+Received 11000 files from Server[4]
+1 - All files received from destination, total: 12419
+Received 12000 files from Server[4]
+4 - All files received from destination, total: 12519
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.545890Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 78142983 usec
+Avg iteration: 13351 usec
+Min duration:  198888 usec
+=== Stats for flows ===
+Max duration : 78142983 usec
+Avg iteration: 13351 usec
+Min duration: 198888 usec
+=== Stats for requests ===
+Max iteration: 78142983 usec
+Avg iteration: 13351 usec
+Min iteration: 198888 usec
+client terminated...
+Received 11000 files from Server[4]
+7 - All files received from destination, total: 12510
+0 - All files received from destination, total: 12594
+Received 6000 files from Server[6]
+Received 5000 files from Server[3]
+Received 12000 files from Server[4]
+4 - All files received from destination, total: 12519
+Received 7000 files from Server[6]
+Received 6000 files from Server[3]
+Received 8000 files from Server[6]
+Received 7000 files from Server[3]
+Received 9000 files from Server[6]
+Received 8000 files from Server[3]
+Received 10000 files from Server[6]
+Received 11000 files from Server[6]
+Received 9000 files from Server[3]
+Received 12000 files from Server[6]
+6 - All files received from destination, total: 12486
+Received 10000 files from Server[3]
+Received 11000 files from Server[3]
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.542934Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 78272860 usec
+Avg iteration: 23814 usec
+Min duration:  62686 usec
+=== Stats for flows ===
+Max duration : 78272860 usec
+Avg iteration: 23814 usec
+Min duration: 62686 usec
+=== Stats for requests ===
+Max iteration: 78272860 usec
+Avg iteration: 23814 usec
+Min iteration: 62686 usec
+client terminated...
+]
+Received 4000 files from Server[7]
+Received 10000 files from Server[2]
+Received 5000 files from Server[7]
+Received 11000 files from Server[2]
+Received 6000 files from Server[7]
+Received 5000 files from Server[3]
+Received 12000 files from Server[2]
+2 - All files received from destination, total: 12545
+Received 7000 files from Server[7]
+Received 6000 files from Server[3]
+Received 8000 files from Server[7]
+Received 7000 files from Server[3]
+Received 9000 files from Server[7]
+Received 10000 files from Server[7]
+Received 8000 files from Server[3]
+Received 11000 files from Server[7]
+Received 9000 files from Server[3]
+Received 12000 files from Server[7]
+Received 10000 files from Server[3]
+7 - All files received from destination, total: 12510
+Received 11000 files from Server[3]
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.527711Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 81468322 usec
+Avg iteration: 37442 usec
+Min duration:  208073 usec
+=== Stats for flows ===
+Max duration : 81468322 usec
+Avg iteration: 37442 usec
+Min duration: 208073 usec
+=== Stats for requests ===
+Max iteration: 81468322 usec
+Avg iteration: 37442 usec
+Min iteration: 208073 usec
+client terminated...
+ved 12000 files from Server[5]
+5 - All files received from destination, total: 12502
+Received 8000 files from Server[2]
+Received 9000 files from Server[4]
+Received 10000 files from Server[3]
+Received 9000 files from Server[6]
+Received 11000 files from Server[3]
+Received 9000 files from Server[2]
+Received 10000 files from Server[4]
+Received 10000 files from Server[6]
+Received 12000 files from Server[3]
+Received 10000 files from Server[2]
+Received 11000 files from Server[4]
+3 - All files received from destination, total: 12425
+Received 11000 files from Server[6]
+Received 12000 files from Server[6]
+Received 11000 files from Server[2]
+Received 12000 files from Server[4]
+6 - All files received from destination, total: 12486
+4 - All files received from destination, total: 12519
+Received 12000 files from Server[2]
+2 - All files received from destination, total: 12545
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.519939Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 79343546 usec
+Avg iteration: 24191 usec
+Min duration:  171924 usec
+=== Stats for flows ===
+Max duration : 79343546 usec
+Avg iteration: 24191 usec
+Min duration: 171924 usec
+=== Stats for requests ===
+Max iteration: 79343546 usec
+Avg iteration: 24191 usec
+Min iteration: 171924 usec
+client terminated...
+]
+Received 8000 files from Server[2]
+Received 7000 files from Server[1]
+Received 4000 files from Server[7]
+Received 8000 files from Server[1]
+Received 9000 files from Server[2]
+Received 5000 files from Server[7]
+Received 9000 files from Server[1]
+Received 6000 files from Server[7]
+Received 10000 files from Server[2]
+Received 10000 files from Server[1]
+Received 11000 files from Server[2]
+Received 7000 files from Server[7]
+Received 11000 files from Server[1]
+Received 8000 files from Server[7]
+Received 12000 files from Server[2]
+Received 12000 files from Server[1]
+Received 9000 files from Server[7]
+1 - All files received from destination, total: 12419
+2 - All files received from destination, total: 12545
+Received 10000 files from Server[7]
+Received 11000 files from Server[7]
+Received 12000 files from Server[7]
+7 - All files received from destination, total: 12510
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.481526Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 87653651 usec
+Avg iteration: 17362 usec
+Min duration:  160632 usec
+=== Stats for flows ===
+Max duration : 87653651 usec
+Avg iteration: 17362 usec
+Min duration: 160632 usec
+=== Stats for requests ===
+Max iteration: 87653651 usec
+Avg iteration: 17362 usec
+Min iteration: 160632 usec
+client terminated...
+from Server[7]
+Received 9000 files from Server[5]
+Received 9000 files from Server[0]
+Received 9000 files from Server[3]
+Received 10000 files from Server[5]
+Received 10000 files from Server[0]
+Received 7000 files from Server[7]
+Received 10000 files from Server[3]
+Received 11000 files from Server[0]
+Received 11000 files from Server[5]
+Received 8000 files from Server[7]
+Received 11000 files from Server[3]
+Received 12000 files from Server[0]
+Received 12000 files from Server[5]
+0 - All files received from destination, total: 12594
+Received 9000 files from Server[7]
+5 - All files received from destination, total: 12502
+Received 12000 files from Server[3]
+3 - All files received from destination, total: 12425
+Received 10000 files from Server[7]
+Received 11000 files from Server[7]
+Received 12000 files from Server[7]
+7 - All files received from destination, total: 12510
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.465720Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 84030419 usec
+Avg iteration: 37096 usec
+Min duration:  149297 usec
+=== Stats for flows ===
+Max duration : 84030419 usec
+Avg iteration: 37096 usec
+Min duration: 149297 usec
+=== Stats for requests ===
+Max iteration: 84030419 usec
+Avg iteration: 37096 usec
+Min iteration: 149297 usec
+client terminated...
+es from Server[6]
+Received 2000 files from Server[2]
+Received 12000 files from Server[1]
+1 - All files received from destination, total: 12419
+Received 9000 files from Server[5]
+Received 11000 files from Server[6]
+Received 3000 files from Server[2]
+Received 10000 files from Server[5]
+Received 12000 files from Server[6]
+6 - All files received from destination, total: 12486
+Received 11000 files from Server[5]
+Received 4000 files from Server[2]
+Received 12000 files from Server[5]
+Received 5000 files from Server[2]
+5 - All files received from destination, total: 12502
+Received 6000 files from Server[2]
+Received 7000 files from Server[2]
+Received 8000 files from Server[2]
+Received 9000 files from Server[2]
+Received 10000 files from Server[2]
+Received 11000 files from Server[2]
+Received 12000 files from Server[2]
+2 - All files received from destination, total: 12545
+All iterations completed. Processing statistics...
+===
+Total RX Throughput: 2.401375Mbps
+=== Stats for fanout sizes ===
+Fanout: 1 - count: 100000
+Max duration : 93957087 usec
+Avg iteration: 12944 usec
+Min duration:  262563 usec
+=== Stats for flows ===
+Max duration : 93957087 usec
+Avg iteration: 12944 usec
+Min duration: 262563 usec
+=== Stats for requests ===
+Max iteration: 93957087 usec
+Avg iteration: 12944 usec
+Min iteration: 262563 usec
+client terminated...
