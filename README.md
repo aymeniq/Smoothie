@@ -23,7 +23,31 @@ Check our paper at [paper](link-to-paper)
 
 ## Getting Started
 
-To get started with Smoothie, follow the installation and configuration instructions in the [documentation](link-to-documentation).
+### Prerequisites
+
+Before diving into Smoothie, make sure you have [p4utils](https://github.com/nsg-ethz/p4-utils) installed. This essential toolkit provides the necessary utilities for Smoothie's seamless integration and operation.
+
+### Installation Steps
+
+Follow these steps to get Smoothie up and running on your system:
+
+1. Clone the Smoothie repository:
+
+   ```bash
+   git clone https://github.com/Advanced-Observability/Smoothie.git
+   ```
+2. Navigate to the project directory:
+
+    ```bash
+   cd Smoothie
+   ```
+### Launch in Benchmark mode
+
+```bash
+   python app.py --config topos/test.json
+```
+
+This command initializes Smoothie with the specified configuration file (`topos/test.json`) to start benchmarking. Feel free to explore different configurations based on your network topology and requirements.
 
 ## Contributing
 
@@ -39,4 +63,4 @@ We would like to acknowledge [contributors](https://scholar.google.com/citations
 
 ## Contact
 
-For any questions or issues, feel free to contact us at [email@example.com](mailto:lchampagne@uliege.be).
+For any questions or issues, feel free to contact us at [lchampagne@uliege.be](mailto:lchampagne@uliege.be).
