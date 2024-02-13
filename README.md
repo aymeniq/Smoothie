@@ -2,7 +2,7 @@
 
 ## Overview
 
-Smoothie is a dynamic path load balancer specifically designed for real-time congestion management in contemporary Data Center Networks (DCNs). It optimizes resource utilization and prevents congestion by leveraging Inband Network Telemetry (\inband) for collecting network state information and Segment Routing Version 6 (\srsix) for rerouting traffic. Built with the programmable P4 programming language, Smoothie effectively achieves its goals, showcasing superior performance over conventional Equal-Cost Multipath (\ecmp) routing and competitive results compared to other congestion-aware load balancing solutions.
+Smoothie is a dynamic path load balancer specifically designed for real-time congestion management in contemporary Data Center Networks (DCNs). It optimizes resource utilization and prevents congestion by leveraging Inband Network Telemetry (INT) for collecting network state information and Segment Routing Version 6 (SRv6) for rerouting traffic. Built with the programmable P4 programming language, Smoothie effectively achieves its goals, showcasing superior performance over conventional Equal-Cost Multipath (ECMP) routing and competitive results compared to other congestion-aware load balancing solutions (CLOVE).
 
 ### Code Base for INT and SRv6
 
@@ -33,18 +33,18 @@ Follow these steps to get Smoothie up and running on your system:
 
 1. Clone the Smoothie repository:
 
-   ```bash
-   git clone https://github.com/Advanced-Observability/Smoothie.git
-   ```
+```bash
+git clone https://github.com/Advanced-Observability/Smoothie.git
+```
 2. Navigate to the project directory:
 
-    ```bash
-   cd Smoothie
-   ```
+```bash
+cd Smoothie
+```
 ### Launch in Benchmark mode
 
 ```bash
-   python app.py --config topos/test.json
+python app.py --config topos/test.json
 ```
 
 This command initializes Smoothie with the specified configuration file (`topos/test.json`) to start benchmarking. Feel free to explore different configurations based on your network topology and requirements.
